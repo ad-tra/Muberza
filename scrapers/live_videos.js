@@ -14,7 +14,7 @@ for (j = 0; j< nodes.length ;j++) {
         result = parseFloat(result.match(/[\d.]+/)[0]) * 1000000
     }
     result = parseInt(result);
-    console.log(result+"\n"+j)
+    
     final = final + result
 
 }
@@ -27,9 +27,7 @@ return final
 
 
 console.log("AVG - "+ intToString(parseInt(final/j+1)))
-
-
-
+console.log("LIVE SUM - " + j)
 console.log("VIEWS - "+ intToString(final))
 
  
