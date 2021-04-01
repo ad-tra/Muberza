@@ -5,7 +5,9 @@ export default function FacadeFrame(){
     return (
         <div>
             <Navbar />
-            <h1>hi</h1>    
+            <footer>
+                footer
+            </footer>
         </div>
            
     )
