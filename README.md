@@ -12,5 +12,6 @@ Comming Consecutively in Development Dances...
 
 
 ## 🔨 Task List 
-[ ] Nav Bar
-[ ]
+- [ ] Nav Bar
+- [ ] Clashing Cut 
+- [ ] Politician Card
