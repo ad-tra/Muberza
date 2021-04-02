@@ -17,4 +17,5 @@
   - [ ] Make it responsive
 - [ ] Politician Card
   - [ ] Finish styling by adding gradient design els
+  - [ ] Add politician images into the graphQL layer
 
