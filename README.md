@@ -11,7 +11,10 @@
 
 ## 🔨 Task List 
 - [ ] Nav Bar
+  - [ ] Finish styling 
+  - [ ] add a humberger menu
 - [ ] Clashing Cut 
+  - [ ] Make it responsive
 - [ ] Politician Card
-
+  - [ ] Finish styling by adding gradient design els
 
