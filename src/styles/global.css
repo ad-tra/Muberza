@@ -23,7 +23,11 @@
 }
 h1, h2, h3, h4, h5, h6{
     font-family: "TS Ateq";
+    font-weight: 400;
 }
+ul{list-style: none;}
+
+
 
 
 .hero_container{
@@ -58,7 +62,35 @@ h1, h2, h3, h4, h5, h6{
 
 .politician_card_container{
     display: flex;
-    justify-content: flex-start;
-    flex-direction: row;
-        
+    flex-direction: row-reverse;
+    position: relative;
+    max-width: 1700px;
+    margin: 0 auto;
+}
+.politician_info{
+    font-size: 1.2em;
+    color: var(--accentG);
+    padding: 2em 0 0 0;
+}
+
+.politician_info h3{
+    font-size: 6.7em;
+    margin-bottom:0.1em;
+}
+.politician_info ul{
+    font-size:1.2em;
+    margin-top:4em;
+}
+.politician_info li{
+    margin-top:0.6em;
+}
+.politician_info ul li span:nth-child(2){
+    font-weight: 600;
+    padding-right: 1.4em;
+}
+
+.politician_card_container a {
+    position: absolute;
+    left:0;
+    bottom:0;
 }

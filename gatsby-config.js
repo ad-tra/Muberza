@@ -15,6 +15,13 @@ module.exports = {
         name: `pages`,
         path: `${__dirname}/src/img/`,
       }
+    },
+    `gatsby-transformer-json`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./src/data/`
+      }
     }
   ]
 }
