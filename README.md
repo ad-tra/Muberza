@@ -7,11 +7,11 @@
 <h1 align="center">
    Muberza 💢
 </h1>
-<p align= "centerComming Consecutively / in Development Dances</p>
-
-
+<p align= "center">Development Dances / Comming Consecutively</p>
 
 ## 🔨 Task List 
 - [ ] Nav Bar
 - [ ] Clashing Cut 
 - [ ] Politician Card
+
+
