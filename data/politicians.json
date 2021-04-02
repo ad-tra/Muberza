@@ -3,7 +3,7 @@
         "party": "karama",
         "name": "سيف الدين مخلوف",
         "briefDiscrp": "لكن لا بــــد أن أوضح لك أن كل هذه الأفكار لمغلوطــة حول ",
-        "thumbImage": "",
+        "thumbImage": "./images/abir_head.png",
         "briefStats": [
             { "key": "مجموع المشاهدات", "value": " 50 مليون" },
             { "key": "مجموع المشاهدات", "value": " 50 مليون" },
@@ -16,7 +16,7 @@
         "party": "dostouri",
         "name": "عبير موسي",
         "briefDiscrp": "لكن لا بــــد أن أوضح لك أن كل هذه الأفكار لمغلوطــة حول ",
-        "thumbImage": "",
+        "thumbImage": "./images/saif_head.png",
         "briefStats": [
             { "key": "مجموع المشاهدات", "value": " 50 مليون" },
             { "key": "مجموع المشاهدات", "value": " 50 مليون" },
@@ -29,7 +29,7 @@
         "party": "karama",
         "name": "عبد اللطيف العلوي",
         "briefDiscrp": "لكن لا بــــد أن أوضح لك أن كل هذه الأفكار لمغلوطــة حول ",
-        "thumbImage": "",
+        "thumbImage": "./images/saif_head.png",
         "briefStats": [
             { "key": "مجموع المشاهدات", "value": " 50 مليون" },
             { "key": "مجموع المشاهدات", "value": " 50 مليون" },
@@ -38,4 +38,5 @@
         "slug": "/SLUG HERE/",
         "stats": {}
     }
+    
 ]

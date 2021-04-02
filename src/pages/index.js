@@ -20,7 +20,11 @@ export default function Home({data}) {
                   }
                   name
                   party
-                  thumbImage
+                  thumbImage {
+                    childrenImageSharp {
+                      gatsbyImageData
+                    }
+                  }
                 }
               }
             }

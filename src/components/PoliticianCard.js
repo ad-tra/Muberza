@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {graphql, Link, useStaticQuery} from 'gatsby';
+import {Link} from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 
@@ -9,16 +9,15 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 
 export default function PoliticianCard({polisNode}){
-    console.log(polisNode);
-    //const image = getImage(data.allFile.edges[0].node)
+    console.log();
+    const image = getImage(polisNode.thumbImage)
 
     return(
         <div className= "politician_card_container">
             <div className="politician_image">
-                {/*<GatsbyImage 
-                image={image}
-                
-                alt="A dinosaur" />*/}
+                <GatsbyImage 
+                image={polisNode.thumbImage.childrenImageSharp[0].gatsbyImageData} 
+                alt={"picture of" + polisNode.name}/>
             </div>
             <div className="politician_info">
                 <h3>{polisNode.name}</h3>
