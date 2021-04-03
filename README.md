@@ -20,6 +20,7 @@
   - [x] Finish styling by adding gradient design els.
   - [x] Add politician images into the graphQL layer.
   - [ ] Make it responsive.
+  - [ ] use SASS mixin to ensure DRY code in .karama .dostouri  
 - [ ] Politician Pages
   - [ ] explore and use `createPages` api function to dynamically create pages.
   - [ ] Data
