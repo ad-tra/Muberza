@@ -3,19 +3,6 @@
         "party": "karama",
         "name": "سيف الدين مخلوف",
         "briefDiscrp": "لكن لا بــــد أن أوضح لك أن كل هذه الأفكار لمغلوطــة حول ",
-        "thumbImage": "./images/abir_head.png",
-        "briefStats": [
-            { "key": "مجموع المشاهدات", "value": " 50 مليون" },
-            { "key": "مجموع المشاهدات", "value": " 50 مليون" },
-            { "key": "مجموع المشاهدات", "value": " 50 مليون" }
-        ],
-        "slug": "/SLUG HERE/",
-        "stats": {}
-    },
-    {
-        "party": "dostouri",
-        "name": "عبير موسي",
-        "briefDiscrp": "لكن لا بــــد أن أوضح لك أن كل هذه الأفكار لمغلوطــة حول ",
         "thumbImage": "./images/saif_head.png",
         "briefStats": [
             { "key": "مجموع المشاهدات", "value": " 50 مليون" },
@@ -23,7 +10,22 @@
             { "key": "مجموع المشاهدات", "value": " 50 مليون" }
         ],
         "slug": "/SLUG HERE/",
-        "stats": {}
+        "stats": {},
+        "facebookId":""
+    },
+    {
+        "party": "dostouri",
+        "name": "عبير موسي",
+        "briefDiscrp": "لكن لا بــــد أن أوضح لك أن كل هذه الأفكار لمغلوطــة حول ",
+        "thumbImage": "./images/abir_head.png",
+        "briefStats": [
+            { "key": "مجموع المشاهدات", "value": " 50 مليون" },
+            { "key": "مجموع المشاهدات", "value": " 50 مليون" },
+            { "key": "مجموع المشاهدات", "value": " 50 مليون" }
+        ],
+        "slug": "/SLUG HERE/",
+        "stats": {},
+        "facebookId":""
     },
     {
         "party": "karama",
@@ -36,7 +38,52 @@
             { "key": "مجموع المشاهدات", "value": " 50 مليون" }
         ],
         "slug": "/SLUG HERE/",
-        "stats": {}
+        "stats": {},
+        "facebookId":""
+    },
+    {
+        "party": "karama",
+        "name": "محمد العفاس",
+        "briefDiscrp": "لكن لا بــــد أن أوضح لك أن كل هذه الأفكار لمغلوطــة حول ",
+        "thumbImage": "./images/mo7amad_head.png",
+        "briefStats": [
+            { "key": "مجموع المشاهدات", "value": " 50 مليون" },
+            { "key": "مجموع المشاهدات", "value": " 50 مليون" },
+            { "key": "مجموع المشاهدات", "value": " 50 مليون" }
+        ],
+        "slug": "/SLUG HERE/",
+        "stats": {},
+        "facebookId":""
+    },
+    {
+        "party": "karama",
+        "name": "نضال سعودي",
+        "briefDiscrp": "لكن لا بــــد أن أوضح لك أن كل هذه الأفكار لمغلوطــة حول ",
+        "thumbImage": "./images/ne4al_head.png",
+        "briefStats": [
+            { "key": "مجموع المشاهدات", "value": " 50 مليون" },
+            { "key": "مجموع المشاهدات", "value": " 50 مليون" },
+            { "key": "مجموع المشاهدات", "value": " 50 مليون" }
+        ],
+        "slug": "/SLUG HERE/",
+        "stats": {},
+        "facebookId":""
+    },
+    {
+        "party": "karama",
+        "name": "",
+        "briefDiscrp": "لكن لا بــــد أن أوضح لك أن كل هذه الأفكار لمغلوطــة حول ",
+        "thumbImage": "./images/3abdltif_head.png",
+        "briefStats": [
+            { "key": "مجموع المشاهدات", "value": " 50 مليون" },
+            { "key": "مجموع المشاهدات", "value": " 50 مليون" },
+            { "key": "مجموع المشاهدات", "value": " 50 مليون" }
+        ],
+        "slug": "/SLUG HERE/",
+        "stats": {},
+        "facebookId":""
     }
+    
+    
     
 ]

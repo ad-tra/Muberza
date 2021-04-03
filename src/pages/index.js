@@ -1,7 +1,7 @@
 import React from "react"
 import NavBar from "../components/Navbar.js"
 import PoliticianCard from "../components/PoliticianCard.js"
-import style from "../styles/global.css"
+import style from "../styles/global.scss"
 import {graphql , Link, useStaticQuery } from "gatsby"
 
 
@@ -10,7 +10,7 @@ export default function Home({data}) {
     const polisArr = useStaticQuery(
         graphql`
         query MyPolis {
-            allPoliticiansJson(filter: {id: {}}) {
+            allPoliticiansJson(sort: {fields: party}) {
               edges {
                 node {
                   briefDiscrp
@@ -22,7 +22,7 @@ export default function Home({data}) {
                   party
                   thumbImage {
                     childrenImageSharp {
-                      gatsbyImageData
+                      gatsbyImageData(placeholder: NONE)
                     }
                   }
                 }

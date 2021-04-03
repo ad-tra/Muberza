@@ -1,0 +1,202 @@
+@font-face {
+    font-family: 'TS Ateq';
+    src: url("../fonts/ts_ateq.woff");
+}
+@font-face {
+    font-family: 'Meral';
+    src:url(../fonts/Meral-Regular.otf) format('truetype') font-weight-400
+}
+
+:root{
+    --primaryR: #40100A;
+    --accentG: #153325;
+}
+
+$primaryG: #159E5B;
+$accentR: #EB4B36;
+*{
+    margin:0;
+    padding:0;
+    font-family: 'Meral';
+    text-align: right;
+    box-sizing: border-box;
+}
+h1, h2, h3, h4, h5, h6{
+    font-family: "TS Ateq";
+    font-weight: 400;
+}
+ul{list-style: none;}
+
+
+
+
+.hero_container{
+    background: linear-gradient(90deg, $primaryG 60vw, var(--primaryR) 40vw);
+}
+
+.hero_header{
+    margin-left: calc(60vw - 31vw);
+    width: 41vw;
+    margin-bottom:22.6em;
+    margin-top:6em;
+}
+
+.hero_header h1{
+    font-size: 20vh;
+    white-space: nowrap;
+    font-weight: 400;
+}
+.hero_header p{
+    font-size: 3vh;
+    margin-top:3vh;
+    line-height: 5.6vh;
+    padding-left:10vh;
+   
+}
+.hero_header { 
+    h1, p{
+        /*background always needs to be first */
+        background: linear-gradient(90deg, var(--accentG) 31vw, $accentR 31vw);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: orangered;
+    } 
+}
+
+
+
+
+
+.dostouri{
+    color: $accentR;
+    background-color: var(--primaryR);
+    .degrade{
+        /* DRY: later modulate with sass maxin or other future.*/
+        background: linear-gradient(-90deg, $accentR 0%, transparent 98%);
+        height: 5em;
+        width: 100%;
+        opacity: 0.6;
+    }
+    .smoll{
+        background: linear-gradient(90deg,$accentR 0%, transparent 98%);
+        width: 12em;
+        position: absolute;
+        left:0;
+        top:2em;
+        opacity: 0.2;
+    }
+    .butt{
+        text-decoration: none;
+        color:$accentR;
+        background: linear-gradient(0deg, rgba($primaryG, 0.2) 0%, transparent 98%);
+        padding: 1.5em 3em 1em 3em;
+
+    }
+    .butt:before{
+        content: "";
+        display: block;
+        height: 7px;
+        width: 100%;
+        top: 1.5em;
+        left: 0;
+        bottom: 0;
+        position: absolute;
+        box-shadow: 0 50px 0 0 $accentR;
+        border-radius: 10px;
+    }
+
+}
+.karama{
+    color: var(--accentG);
+    background-color: $primaryG;
+    .degrade{
+        background: linear-gradient(-90deg,var(--accentG) 0%, transparent 98%);
+        height: 5em;
+        width: 100%;
+        opacity: 0.6;
+    }
+    .smoll{
+        background: linear-gradient(90deg,var(--accentG) 0%, transparent 98%);
+        width: 12em;
+        position:absolute;
+        left:0;
+        top:2em;
+        opacity: 0.2;
+
+    }
+    .butt{
+        text-decoration: none;
+        color:var(--accentG);
+        background: linear-gradient(0deg, rgba($accentR, 0.3) 0%, transparent 98%);
+        padding:1em 3em;
+        padding: 1.5em 3em 1em 3em;
+    }
+    .butt:before{
+        content: "";
+        display: block;
+        height: 7px;
+        width: 100%;
+        top: 1.5em;
+        left: 0;
+        bottom: 0;
+        position: absolute;
+        box-shadow: 0 50px 0 0 var(--accentG);
+        border-radius: 10px;
+    }
+}
+
+
+
+.politician_card_container{
+    overflow: auto;
+    .politician_card{
+        position: relative;
+        display: flex;
+        flex-direction: row-reverse;
+        margin: 18em 7em 18em 15em;
+        @media (max-width: 400px) {
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        .politician_info{
+            font-size: 1.2em;
+            padding-right: 7em;
+            @media (max-width: 400px) {
+                padding-right: 0em;
+            }
+            h3{
+                font-size: 6.7em;
+                margin-bottom:0.3em;
+                line-height: 0.7em;
+            }
+            ul{
+                font-size:1.2em;
+                margin-top:5em;
+                li{
+                    margin-top:0.6em;
+                }
+                /*value bolding after the key*/
+                li span:nth-child(2){
+                    font-weight: 600;
+                    padding-right: 1.4em;
+                }
+            }
+        }
+        a{
+            align-self: flex-end;
+            position: absolute;
+            left:0;
+            bottom:0;
+            font-size: 1.5em;
+            font-weight: 500;
+        }
+        .politician_image{
+            width: 30.4em;
+            picture{
+                opacity: 0.8;
+            }
+        }
+    }
+    
+}
