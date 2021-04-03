@@ -1,16 +1,19 @@
 import React from 'react';
 import {Link} from 'gatsby';
-import * as styles from '../styles/navbar.module.css'
+import * as styles from '../styles/global.scss'
+import Logo from "../../data/svg/logo.svg"
 
 export default function Navbar(){ 
     return (
-        <nav className= { styles.nav }>
-            <Link to= "#">Hi</Link>
+        <nav className= "navbar">
             
-            <ul>
-                <li><Link to="#">test</Link></li>
-                <li><Link to="#">test</Link></li>
-                <li><Link to="#">test</Link></li>
+            
+            <Link className= "navbar_logo" to= "#"> <Logo /> </Link>
+            
+            <ul className = "navbar_links">
+                <li ><Link to="#">شكـونـا</Link></li>
+                <li ><Link to="#">اتصل بنا</Link></li>
+                <li ><Link to="#">اعطينا رايك</Link></li>
             </ul>
         </nav>
     )

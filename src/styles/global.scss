@@ -9,9 +9,9 @@
 
 :root{
     --primaryR: #40100A;
-    --accentG: #153325;
+    
 }
-
+$accentG: #153325;
 $primaryG: #159E5B;
 $accentR: #EB4B36;
 *{
@@ -25,44 +25,116 @@ h1, h2, h3, h4, h5, h6{
     font-family: "TS Ateq";
     font-weight: 400;
 }
+
+
 ul{list-style: none;}
 
 
 
 
-.hero_container{
+
+
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
+    padding-right:5vw; 
+    &_logo svg{
+        color: red;
+        height: 1em;
+        min-height: 40px;
+        
+    }
+    &_links{
+        display: flex;
+        justify-content: flex-start;
+        padding-left: 5vw;
+        width: 60vw;
+        background: linear-gradient(180deg, lighten( saturate($primaryG, 100% ), 8%), transparent 98%);
+        li{
+            padding:2.5em;
+        }
+        a{
+            text-decoration:none;
+            color: $accentG;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+    }
+}
+
+
+
+.clashing_colors{
     background: linear-gradient(90deg, $primaryG 60vw, var(--primaryR) 40vw);
+    min-height: 100vh;
+    position: relative;
+    &_header { 
+        margin-left: calc(60vw - 31vw);
+        width: 41vw;
+        margin-top: 3vw;
+        p{
+            font-size: 3vh;
+            margin-top:3vh;
+            line-height: 5.6vh;
+            padding-left:10vh;
+        }
+        h1{
+            font-size: 20vh;
+            white-space: nowrap;
+            font-weight: 400;
+        }
+        h1, p{
+            /*background always needs to be first */
+            background: linear-gradient(90deg, $accentG 31vw, $accentR 31vw);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: orangered;
+        } 
+    }
+    &_cta{
+        display: flex;
+        align-items: flex-end;
+        position: absolute;
+        left:4em;
+        bottom:0;
+        a{
+            position: absolute;
+            bottom: 5em;
+            right: -1.6em;
+            z-index: 2;
+            text-decoration:none;
+            color: $accentG;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+        .degrade{
+            background: linear-gradient(0deg, rgba($accentR, 0.5) 0%, transparent 98%);
+            position: relative;
+        }
+        .degrade:nth-child(2){
+            width: 1.4em;
+            height: 8em;
+            margin-right: 2em;
+            bottom: 2em;
+        }
+        .degrade:nth-child(3){
+            width: 4em;
+            height: 18em;
+        }
+        .degrade:nth-child(4){
+            width: 1em;
+            height: 5em;
+            margin-left: 1em;
+        }
+    }
+
 }
 
-.hero_header{
-    margin-left: calc(60vw - 31vw);
-    width: 41vw;
-    margin-bottom:22.6em;
-    margin-top:6em;
-}
 
-.hero_header h1{
-    font-size: 20vh;
-    white-space: nowrap;
-    font-weight: 400;
-}
-.hero_header p{
-    font-size: 3vh;
-    margin-top:3vh;
-    line-height: 5.6vh;
-    padding-left:10vh;
-   
-}
-.hero_header { 
-    h1, p{
-        /*background always needs to be first */
-        background: linear-gradient(90deg, var(--accentG) 31vw, $accentR 31vw);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        color: orangered;
-    } 
-}
 
 
 
@@ -76,7 +148,7 @@ ul{list-style: none;}
         background: linear-gradient(-90deg, $accentR 0%, transparent 98%);
         height: 5em;
         width: 100%;
-        opacity: 0.6;
+        opacity: 0.4;
     }
     .smoll{
         background: linear-gradient(90deg,$accentR 0%, transparent 98%);
@@ -87,37 +159,26 @@ ul{list-style: none;}
         opacity: 0.2;
     }
     .butt{
-        text-decoration: none;
         color:$accentR;
         background: linear-gradient(0deg, rgba($primaryG, 0.2) 0%, transparent 98%);
-        padding: 1.5em 3em 1em 3em;
 
     }
     .butt:before{
-        content: "";
-        display: block;
-        height: 7px;
-        width: 100%;
-        top: 1.5em;
-        left: 0;
-        bottom: 0;
-        position: absolute;
         box-shadow: 0 50px 0 0 $accentR;
-        border-radius: 10px;
     }
 
 }
 .karama{
-    color: var(--accentG);
+    color: $accentG;
     background-color: $primaryG;
     .degrade{
-        background: linear-gradient(-90deg,var(--accentG) 0%, transparent 98%);
+        background: linear-gradient(-90deg, $accentG 0%, transparent 98%);
         height: 5em;
         width: 100%;
         opacity: 0.6;
     }
     .smoll{
-        background: linear-gradient(90deg,var(--accentG) 0%, transparent 98%);
+        background: linear-gradient(90deg,$accentG 0%, transparent 98%);
         width: 12em;
         position:absolute;
         left:0;
@@ -126,23 +187,12 @@ ul{list-style: none;}
 
     }
     .butt{
-        text-decoration: none;
-        color:var(--accentG);
+        color:$accentG;
         background: linear-gradient(0deg, rgba($accentR, 0.3) 0%, transparent 98%);
-        padding:1em 3em;
-        padding: 1.5em 3em 1em 3em;
     }
     .butt:before{
-        content: "";
-        display: block;
-        height: 7px;
-        width: 100%;
-        top: 1.5em;
-        left: 0;
-        bottom: 0;
-        position: absolute;
-        box-shadow: 0 50px 0 0 var(--accentG);
-        border-radius: 10px;
+        box-shadow: 0 50px 0 0 $accentG;
+
     }
 }
 
@@ -184,13 +234,26 @@ ul{list-style: none;}
                 }
             }
         }
-        a{
+        .butt{
+            text-decoration: none;
             align-self: flex-end;
             position: absolute;
             left:0;
             bottom:0;
-            font-size: 1.5em;
+            font-size: 1.2em;
             font-weight: 500;
+            padding: 1.5em 3em 1em 3em;
+            &:before{
+                content: "";
+                display: block;
+                height: 7px;
+                width: 100%;
+                top: 1em;
+                left: 0;
+                bottom: 0;
+                position: absolute;
+                border-radius: 10px;
+            }
         }
         .politician_image{
             width: 30.4em;
