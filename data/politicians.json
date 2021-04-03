@@ -31,7 +31,7 @@
         "party": "karama",
         "name": "عبد اللطيف العلوي",
         "briefDiscrp": "لكن لا بــــد أن أوضح لك أن كل هذه الأفكار لمغلوطــة حول ",
-        "thumbImage": "./images/saif_head.png",
+        "thumbImage": "./images/3bdltif_head.png",
         "briefStats": [
             { "key": "مجموع المشاهدات", "value": " 50 مليون" },
             { "key": "مجموع المشاهدات", "value": " 50 مليون" },
@@ -59,7 +59,7 @@
         "party": "karama",
         "name": "نضال سعودي",
         "briefDiscrp": "لكن لا بــــد أن أوضح لك أن كل هذه الأفكار لمغلوطــة حول ",
-        "thumbImage": "./images/ne4al_head.png",
+        "thumbImage": "./images/ni4al_head.png",
         "briefStats": [
             { "key": "مجموع المشاهدات", "value": " 50 مليون" },
             { "key": "مجموع المشاهدات", "value": " 50 مليون" },
@@ -71,9 +71,9 @@
     },
     {
         "party": "karama",
-        "name": "",
+        "name": "زياد الهاشمي",
         "briefDiscrp": "لكن لا بــــد أن أوضح لك أن كل هذه الأفكار لمغلوطــة حول ",
-        "thumbImage": "./images/3abdltif_head.png",
+        "thumbImage": "./images/ziad_head.png",
         "briefStats": [
             { "key": "مجموع المشاهدات", "value": " 50 مليون" },
             { "key": "مجموع المشاهدات", "value": " 50 مليون" },
