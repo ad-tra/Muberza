@@ -22,7 +22,7 @@
   - [ ] Make it responsive.
   - [ ] use SASS mixin to ensure DRY code in .karama .dostouri  
 - [ ] Politician Pages
-  - [ ] explore and use `createPages` api function to dynamically create pages.
+  - [x] explore and use `createPages` api function to dynamically create pages.
   - [ ] Data
     - [ ] collect it without scraping it ;)
     - [ ] visualize  it. D3.js or Chart.js?
