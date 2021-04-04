@@ -36,6 +36,10 @@ ul{list-style: none;}
 
 
 .navbar{
+    position: absolute;
+    width: 100%;
+    top:0;
+    z-index: 10;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -71,10 +75,11 @@ ul{list-style: none;}
     background: linear-gradient(90deg, $primaryG 60vw, var(--primaryR) 40vw);
     min-height: 100vh;
     position: relative;
+    overflow: hidden;
     &_header { 
         margin-left: calc(60vw - 31vw);
         width: 41vw;
-        margin-top: 3vw;
+        margin-top: 6em;
         p{
             font-size: 3vh;
             margin-top:3vh;
@@ -148,7 +153,7 @@ ul{list-style: none;}
         background: linear-gradient(-90deg, $accentR 0%, transparent 98%);
         height: 5em;
         width: 100%;
-        opacity: 0.4;
+        opacity: 0.2;
     }
     .smoll{
         background: linear-gradient(90deg,$accentR 0%, transparent 98%);
@@ -156,11 +161,11 @@ ul{list-style: none;}
         position: absolute;
         left:0;
         top:2em;
-        opacity: 0.2;
+        opacity: 0.1;
     }
     .butt{
         color:$accentR;
-        background: linear-gradient(0deg, rgba($primaryG, 0.2) 0%, transparent 98%);
+        background: linear-gradient(0deg, rgba($primaryG, 0.1) 0%, transparent 98%);
 
     }
     .butt:before{
@@ -175,7 +180,7 @@ ul{list-style: none;}
         background: linear-gradient(-90deg, $accentG 0%, transparent 98%);
         height: 5em;
         width: 100%;
-        opacity: 0.6;
+        opacity: 0.4;
     }
     .smoll{
         background: linear-gradient(90deg,$accentG 0%, transparent 98%);
@@ -241,7 +246,8 @@ ul{list-style: none;}
             left:0;
             bottom:0;
             font-size: 1.2em;
-            font-weight: 500;
+            font-weight: 600;
+            word-spacing: 0.4em;
             padding: 1.5em 3em 1em 3em;
             &:before{
                 content: "";

@@ -1,14 +1,13 @@
 import React from 'react'
 import Navbar from './Navbar'
 
-export default function FacadeFrame(){
+export default function Layout(props) {
     return (
         <div>
             <Navbar />
-            <footer>
-                footer
-            </footer>
+            {props.children}
+            <footer>Shot myself in the foot</footer>
+
         </div>
-           
     )
 }
