@@ -6,7 +6,7 @@ export default function Layout(props) {
         <div>
             <Navbar />
             {props.children}
-            <footer>Shot myself in the foot</footer>
+            <footer>Shot myself in the footer</footer>
 
         </div>
     )

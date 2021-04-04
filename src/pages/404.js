@@ -6,7 +6,7 @@ import ClashingColors from '../components/ClashingColors'
 export default function NotFound(){
     return (
         <Layout>
-            <ClashingColors headerText="404 موش موجود" subHeaderText="يا عمار سيب المقص"></ClashingColors>
+            <ClashingColors headerText="404 موش موجود" subheaderText ="يا عمار سيب الــمقص"></ClashingColors>
         </Layout>
     )
 }

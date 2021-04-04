@@ -6,7 +6,7 @@ export default function ClashingColors(props) {
             {console.log(props)}
             <div className="clashing_colors_header">
                 <h1 dir="rtl" lang="ar">{props.headerText}</h1>
-                <p dir="rtl" lang="ar">{props.subHeaderText}</p>
+                <p dir="rtl" lang="ar">{props.subheaderText}</p>
             </div>
 
             {props.children}
