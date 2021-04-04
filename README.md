@@ -11,7 +11,7 @@
 
 ## 🔨 Task List 
 - [ ] Nav Bar
-  - [ ] Start and Finish styling 
+  - [x] Start and Finish styling 
   - [ ] Add a humberger menu
 - [ ] Clashing Cut 
   - [x] Finish styling by using `background-clip`
