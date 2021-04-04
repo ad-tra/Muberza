@@ -8,12 +8,12 @@ export default function Navbar(){
         <nav className= "navbar">
             
             
-            <Link className= "navbar_logo" to= "#"> <Logo /> </Link>
+            <Link className= "navbar_logo" to= "/"> <Logo /> </Link>
             
             <ul className = "navbar_links">
-                <li ><Link to="#">شكـونـا</Link></li>
-                <li ><Link to="#">اتصل بنا</Link></li>
-                <li ><Link to="#">اعطينا رايك</Link></li>
+                <li ><Link to="/404">شكـونـا</Link></li>
+                <li ><Link to="/404">اتصل بنا</Link></li>
+                <li ><Link to="/404">اعطينا رايك</Link></li>
             </ul>
         </nav>
     )

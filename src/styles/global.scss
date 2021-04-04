@@ -217,13 +217,13 @@ ul{list-style: none;}
         }
         .politician_info{
             font-size: 1.2em;
-            padding-right: 7em;
+            padding-right: 5em;
             @media (max-width: 400px) {
                 padding-right: 0em;
             }
             h3{
                 font-size: 6.7em;
-                margin:0.3em 0;
+                margin-bottom:0.3em;
                 line-height: 0.7em;
             }
             ul{
@@ -262,7 +262,7 @@ ul{list-style: none;}
             }
         }
         .politician_image{
-            width: 30.4em;
+            width: 25em;
             picture{
                 opacity: 0.8;
             }
