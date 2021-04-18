@@ -6,7 +6,7 @@ import ClashingColors from '../components/ClashingColors.js'
 import BtnSwipUp from '../components/BtnSwipUp.js'
 import Layout from '../components/Layout.js'
 
-export default function Index () {
+export default function Home({ data }) {
     const polisArr = useStaticQuery(
         graphql`
             query MyPolis {
@@ -14,7 +14,6 @@ export default function Index () {
                     edges {
                         node {
                             briefDiscrp
-                            slug
                             briefStats {
                                 key
                                 value
@@ -37,13 +36,13 @@ export default function Index () {
         <Layout> 
             <ClashingColors
             headerText="مــــــبـــا ر ز ة"
-            subheaderText="بوق في البرلمـــان و مبارزة في المطار. عبير كونتر سـيــف هو طـــرح يـتفرجو فيها مـلاين توانسا على Facebook Lives. زعما شكون ر ابـح الطرح؟ شكون عندو نسب مشــاهدة أعلـى؟ تزحلق اللوطة, انبهر واتعرف  على الأ رقام.">
+            subHeaderText="عبير كونتر سـيــف. إتلاف كونتر كرامة هي مبارزة يـتفرجو فيها مـلاين توانسا على Facebook Lives. زعما شكون ر ابـح الطرح؟ شكون عندو نسب مشاهدة أعلـى؟ تزحلق اللوطة و اتعرف على الأرقام.">
                 
                 <BtnSwipUp hrefText = "تـزحلق اللوطة"/>
             
             </ClashingColors>
 
-            {polisArr.allPoliticiansJson.edges.map((edge) => {return <PoliticianCard politician={edge.node} />})}
+            {polisArr.allPoliticiansJson.edges.map((edge) => {return <PoliticianCard polisNode={edge.node} />})}
         </Layout>
     )
 }

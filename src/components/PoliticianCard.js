@@ -4,24 +4,24 @@ import {Link} from 'gatsby';
 import { GatsbyImage} from 'gatsby-plugin-image';
 
 
-export default function PoliticianCard({politician}){
+export default function PoliticianCard({polisNode}){
 
     return(
-        <section className= {"politician_card_container "+ politician.party} >
+        <div className= {"politician_card_container "+ polisNode.party} >
             <div className = "politician_card">
                     
                 <div className="politician_image">
-                    <GatsbyImage image={politician.thumbImage.childrenImageSharp[0].gatsbyImageData} alt={"picture of" + politician.name}/>
+                    <GatsbyImage image={polisNode.thumbImage.childrenImageSharp[0].gatsbyImageData} alt={"picture of" + polisNode.name}/>
                     <div className= "degrade" aria-hidden= {true} ></div>
                 </div>
                 
                 
                 <div className="politician_info">
-                    <h3>{politician.name}</h3>
-                    <p>{politician.briefDiscrp}</p>
+                    <h3>{polisNode.name}</h3>
+                    <p>{polisNode.briefDiscrp}</p>
                     
                     <ul>
-                        {politician.briefStats.map((statObj) =>{
+                        {polisNode.briefStats.map((statObj) =>{
                             return (
                                 <li>
                                     <span>{statObj.key}: </span>
@@ -33,10 +33,10 @@ export default function PoliticianCard({politician}){
                     
                 </div>
             
-            <Link to={`/politicians/${politician.slug}`} className="butt">شــوف أكثر  معلــومـات</Link>
+            <Link to="#" className="butt">شــوف أكثر  معلــومـات</Link>
             <div className="degrade smoll" aria-hidden= "true"></div>
             </div>
-        </section>
+        </div>
     )
 }
 

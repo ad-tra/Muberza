@@ -162,7 +162,6 @@ ul{list-style: none;}
         left:0;
         top:2em;
         opacity: 0.1;
-        height: 3em;
     }
     .butt{
         color:$accentR;
@@ -189,13 +188,12 @@ ul{list-style: none;}
         position:absolute;
         left:0;
         top:2em;
-        height: 3em;
         opacity: 0.2;
 
     }
     .butt{
         color:$accentG;
-        background: linear-gradient(0deg, lighten(rgba($accentR, 0.5), 5%) 0%, transparent 98%);
+        background: linear-gradient(0deg, rgba($accentR, 0.3) 0%, transparent 98%);
     }
     .butt:before{
         box-shadow: 0 50px 0 0 $accentG;
@@ -207,16 +205,12 @@ ul{list-style: none;}
 
 .politician_card_container{
     overflow: auto;
-    &:first-of-type .politician_card{
-        margin: 18em auto;
-    }
     .politician_card{
         position: relative;
         display: flex;
         flex-direction: row-reverse;
-        margin: 10em  auto;
+        margin: 7em auto 18em auto;
         max-width: 1500px;
-
         @media (max-width: 400px) {
             flex-direction: column;
             align-items: flex-end;
