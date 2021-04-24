@@ -9,8 +9,8 @@
             { "key": "مجموع المشاهدات", "value": " 50 مليون" },
             { "key": "مجموع المشاهدات", "value": " 50 مليون" }
         ],
-        "slug": "/SLUG HERE/",
-        "stats": {},
+        "slug": "saif-din-makhlouf",
+        "stats": {"vues": "22"},
         "facebookId":""
     },
     {
@@ -23,8 +23,8 @@
             { "key": "مجموع المشاهدات", "value": " 50 مليون" },
             { "key": "مجموع المشاهدات", "value": " 50 مليون" }
         ],
-        "slug": "/SLUG HERE/",
-        "stats": {},
+        "slug": "abir-moussi",
+        "stats": {"vues": "22"},
         "facebookId":""
     },
     {
@@ -37,8 +37,8 @@
             { "key": "مجموع المشاهدات", "value": " 50 مليون" },
             { "key": "مجموع المشاهدات", "value": " 50 مليون" }
         ],
-        "slug": "/SLUG HERE/",
-        "stats": {},
+        "slug": "adbeldtif-al-oulwi",
+        "stats": {"vues": "22"},
         "facebookId":""
     },
     {
@@ -51,8 +51,8 @@
             { "key": "مجموع المشاهدات", "value": " 50 مليون" },
             { "key": "مجموع المشاهدات", "value": " 50 مليون" }
         ],
-        "slug": "/SLUG HERE/",
-        "stats": {},
+        "slug": "mohamad-affes",
+        "stats": {"vues": "22"},
         "facebookId":""
     },
     {
@@ -65,8 +65,8 @@
             { "key": "مجموع المشاهدات", "value": " 50 مليون" },
             { "key": "مجموع المشاهدات", "value": " 50 مليون" }
         ],
-        "slug": "/SLUG HERE/",
-        "stats": {},
+        "slug": "nedhal-soudi",
+        "stats": {"vues": "22"},
         "facebookId":""
     },
     {
@@ -79,8 +79,8 @@
             { "key": "مجموع المشاهدات", "value": " 50 مليون" },
             { "key": "مجموع المشاهدات", "value": " 50 مليون" }
         ],
-        "slug": "/SLUG HERE/",
-        "stats": {},
+        "slug": "ziad-hechmi",
+        "stats": {"vues": "22"},
         "facebookId":""
     }
     

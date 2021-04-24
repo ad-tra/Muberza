@@ -14,6 +14,10 @@
 $accentG: #153325;
 $primaryG: #159E5B;
 $accentR: #EB4B36;
+$navbarXPadding: 5vw;
+$navbarYpadding: 2.5em;
+$breakpointMobile: 600px;
+
 *{
     margin:0;
     padding:0;
@@ -30,11 +34,6 @@ h1, h2, h3, h4, h5, h6{
 ul{list-style: none;}
 
 
-
-
-
-
-
 .navbar{
     position: absolute;
     width: 100%;
@@ -44,21 +43,57 @@ ul{list-style: none;}
     justify-content: space-between;
     align-items: center;
     flex-direction: row-reverse;
-    padding-right:5vw; 
-    &_logo svg{
-        color: red;
-        height: 1em;
-        min-height: 40px;
-        
+    padding-right: $navbarXPadding; 
+    @media (max-width: $breakpointMobile) {
+        flex-direction: column;
+        padding:0;
     }
+    
+    &_controls{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @media (max-width: $breakpointMobile) {
+            padding: 0 $navbarXPadding;
+            width: 100%;
+        }
+        .logo svg{
+            height: 1em;
+            min-height: 40px;  
+        }
+        .burger{
+            background-color: transparent;
+            border: none;
+            padding: 0;
+            svg{fill: $accentR}
+            display: none;
+            @media (max-width: $breakpointMobile) {
+                display: inherit;
+                margin:$navbarYpadding 0;
+            } 
+        }
+    }
+
     &_links{
         display: flex;
         justify-content: flex-start;
-        padding-left: 5vw;
+        padding-left: $navbarXPadding;
         width: 60vw;
         background: linear-gradient(180deg, lighten( saturate($primaryG, 100% ), 8%), transparent 98%);
+        @media (max-width: $breakpointMobile) {
+            width: 100%;
+            flex-direction: column;
+            padding:0;
+            align-items: center;
+            justify-content: center;
+            height: calc(100vh - (#{$navbarYpadding} * 2 + 7px ) );
+            background: $primaryG;
+        }
         li{
-            padding:2.5em;
+            padding:$navbarYpadding;
+            @media (max-width: $breakpointMobile){
+                background: linear-gradient(90deg, transparent, lighten( saturate($primaryG, 10% ), 4%), transparent 57%);
+            }
         }
         a{
             text-decoration:none;
@@ -202,14 +237,19 @@ ul{list-style: none;}
 }
 
 
+/* since first element(abir) is off diferrent color, increase its margin, and give it space*/
+section .politician_card_container:first-of-type .politician_card{
+    margin:18em auto;
+}
 
 .politician_card_container{
     overflow: auto;
+
     .politician_card{
         position: relative;
         display: flex;
         flex-direction: row-reverse;
-        margin: 7em auto 18em auto;
+        margin: 9em auto;
         max-width: 1500px;
         @media (max-width: 400px) {
             flex-direction: column;
