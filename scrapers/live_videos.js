@@ -1,33 +1,26 @@
-let result = ""
-let final = 0
+let vusNum = ""
+let data = []
 let nodes = document.querySelectorAll('span.fcg');
-let j = 0
-for (j = 0; j< nodes.length ;j++) {
-    if (nodes[j].parentElement.textContent.match("2020") != null)
-        break;
-    
-    result = nodes[j].textContent
-    result = result.replace(" views", "")
-    result = result.replace("K", "000")
+let liveViewsCount = 0;
 
-    if (result.match("M") != null) {
-        result = parseFloat(result.match(/[\d.]+/)[0]) * 1000000
+for (let j = 0; j< nodes.length ;j++) {
+    //if (nodes[j].parentElement.textContent.match("2020") != null)
+    //    break;
+    
+    vusNum = nodes[j].textContent.replace(" views", "").replace("K", "000")
+
+    if (vusNum.match("M") != null) {
+        vusNum = parseFloat(vusNum.match(/[\d.]+/)[0]) * 1000000
     }
-    result = parseInt(result);
+    vusNum = parseInt(result);
+    liveViewsCount += vusNum
+
+    let vusDate = nodes[j].parentElement.textContent.match(/· (.*)/)[1]
     
-    final = final + result
+
+    data.push({"x": vusDate, "y": vusNum})
 
 }
-function intToString(final){
-final = final.toString()
-for (let i = final.length - 3; i > 0; i = i - 3)
-    final = final.substring(0, i) + "," + final.substring(i)
-return final
-}
 
-
-console.log("AVG - "+ intToString(parseInt(final/j+1)))
-console.log("LIVE SUM - " + j)
-console.log("VIEWS - "+ intToString(final))
-
- 
+let resultObj = {"data": data, "vuesPerLive" :liveViewsCount/j ,"aggregateViews": liveViewsCount }
+console.log(resultObj)

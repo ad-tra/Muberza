@@ -22,7 +22,9 @@
   - [ ] Make it responsive.
   - [ ] use SASS mixin to ensure DRY code in .karama .dostouri  
 - [ ] Politician Pages
-  - [ ] explore and use `createPages` api function to dynamically create pages.
-  - [ ] Data
-    - [ ] collect it without scraping it ;)
-    - [ ] visualize  it. D3.js or Chart.js?
+  - [x] explore and use `createPages` api function to dynamically create pages.
+  - [ ] Chart.js
+    - [ ] Collect data in form [...{"date" "MARS 8", "vues": 1677781}]
+    - [ ] generate a line graph with consistent-scale x-axis
+    - [ ] Design the UI for graphs.
+    - [ ] Brainstorm user control features: (ex) Compare a politician to another politician/youtuber/instagrameuse...  
