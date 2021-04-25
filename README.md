@@ -28,3 +28,6 @@
     - [ ] generate a line graph with consistent-scale x-axis
     - [ ] Design the UI for graphs.
     - [ ] Brainstorm user control features: (ex) Compare a politician to another politician/youtuber/instagrameuse...  
+
+## Hero Preview 
+![enter image description here](https://i.imgur.com/RN8k8Vp.png)
