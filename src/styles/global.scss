@@ -7,10 +7,8 @@
     src:url(../fonts/Meral-Regular.otf) format('truetype') font-weight-400
 }
 
-:root{
-    --primaryR: #40100A;
-    
-}
+
+$primaryR: #40100A;
 $accentG: #153325;
 $primaryG: #159E5B;
 $accentR: #EB4B36;
@@ -24,6 +22,7 @@ $breakpointMobile: 600px;
     font-family: 'Meral';
     text-align: right;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 h1, h2, h3, h4, h5, h6{
     font-family: "TS Ateq";
@@ -107,7 +106,7 @@ ul{list-style: none;}
 
 
 .clashing_colors{
-    background: linear-gradient(90deg, $primaryG 60vw, var(--primaryR) 40vw);
+    background: linear-gradient(90deg, $primaryG 60vw, $primaryR 40vw);
     min-height: 100vh;
     position: relative;
     overflow: hidden;
@@ -182,13 +181,16 @@ ul{list-style: none;}
 
 .dostouri{
     color: $accentR;
-    background-color: var(--primaryR);
+    background-color: $primaryR;
+    .politician_card{
+        background-color:rgba($accentR,0.08)
+    }
     .degrade{
         /* DRY: later modulate with sass maxin or other future.*/
         background: linear-gradient(-90deg, $accentR 0%, transparent 98%);
         height: 5em;
         width: 100%;
-        opacity: 0.2;
+        opacity: 0.26;
     }
     .smoll{
         background: linear-gradient(90deg,$accentR 0%, transparent 98%);
@@ -200,7 +202,7 @@ ul{list-style: none;}
     }
     .butt{
         color:$accentR;
-        background: linear-gradient(0deg, rgba($primaryG, 0.1) 0%, transparent 98%);
+        background: linear-gradient(0deg, rgba($primaryG, 0.16) 0%, transparent 98%);
 
     }
     .butt:before{
@@ -211,11 +213,14 @@ ul{list-style: none;}
 .karama{
     color: $accentG;
     background-color: $primaryG;
+    .politician_card{
+        background-color: rgba($accentG,0.08);
+    }
     .degrade{
         background: linear-gradient(-90deg, $accentG 0%, transparent 98%);
         height: 5em;
         width: 100%;
-        opacity: 0.4;
+        opacity: 0.5;
     }
     .smoll{
         background: linear-gradient(90deg,$accentG 0%, transparent 98%);
@@ -223,7 +228,7 @@ ul{list-style: none;}
         position:absolute;
         left:0;
         top:2em;
-        opacity: 0.2;
+        opacity: 0.18;
 
     }
     .butt{
@@ -251,6 +256,7 @@ section .politician_card_container:first-of-type .politician_card{
         flex-direction: row-reverse;
         margin: 9em auto;
         max-width: 1500px;
+        padding-top:5em;
         @media (max-width: 400px) {
             flex-direction: column;
             align-items: flex-end;

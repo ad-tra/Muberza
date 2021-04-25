@@ -39,11 +39,13 @@ export default function Index () {
             headerText="مــــــبـــا ر ز ة"
             subheaderText="بوق في البرلمـــان و مبارزة في المطار. عبير كونتر سـيــف هو طـــرح يـتفرجو فيها مـلاين توانسا على Facebook Lives. زعما شكون ر ابـح الطرح؟ شكون عندو نسب مشــاهدة أعلـى؟ تزحلق اللوطة, انبهر واتعرف  على الأ رقام.">
                 
-                <BtnSwipUp hrefText = "تـزحلق اللوطة"/>
+                <BtnSwipUp href ="#hero_content" hrefText = "تـزحلق اللوطة"/>
             
             </ClashingColors>
+            <section id= "hero_content">
+                {polisArr.allPoliticiansJson.edges.map((edge) => {return <PoliticianCard politician={edge.node} />})}
+            </section>
 
-            {polisArr.allPoliticiansJson.edges.map((edge) => {return <PoliticianCard politician={edge.node} />})}
         </Layout>
     )
 }
