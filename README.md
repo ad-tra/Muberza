@@ -15,7 +15,7 @@
   - [ ] Add a humberger menu
 - [ ] Clashing Cut 
   - [x] Finish styling by using `background-clip`
-  - [ ] Make it responsive
+  - [x] Make it responsive
 - [ ] Politician Card
   - [x] Finish styling by adding gradient design els.
   - [x] Add politician images into the graphQL layer.
