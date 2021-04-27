@@ -8,13 +8,14 @@ export default function Navbar(){
         <nav className= "navbar">
             
             <div className = "navbar_controls">
-                <Link className= "logo" to= "/"> <Logo /> </Link>
                 
                 <button className = "burger">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="143.7 162.1 139.9 92.8" width="30px" height="20px">
                         <path d="M144 232h140v23H144zM144 197h140v23H144zM144 162h140v23H144z"/>
                     </svg>
                 </button>
+                <Link className= "logo" to= "/"> <Logo /> </Link>
+                
             </div>
 
             
