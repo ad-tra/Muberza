@@ -15,7 +15,7 @@
   - [ ] Add a humberger menu
 - [ ] Clashing Cut 
   - [x] Finish styling by using `background-clip`
-  - [ ] Make it responsive
+  - [x] Make it responsive
 - [ ] Politician Card
   - [x] Finish styling by adding gradient design els.
   - [x] Add politician images into the graphQL layer.
@@ -28,3 +28,6 @@
     - [ ] generate a line graph with consistent-scale x-axis
     - [ ] Design the UI for graphs.
     - [ ] Brainstorm user control features: (ex) Compare a politician to another politician/youtuber/instagrameuse...  
+
+## Hero Preview 
+![enter image description here](https://i.imgur.com/RN8k8Vp.png)
