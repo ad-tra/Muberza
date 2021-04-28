@@ -4,9 +4,9 @@ import * as styles from '../styles/global.scss'
 import Logo from "../../data/svg/logo.svg"
 
 export default function Navbar(){ 
-    const [state, setstate] = useState(false)
+    const [state, setState] = useState(false)
     function handleHam(){
-        setstate(!state)
+        setState(state => !state)
     }
     return (
         <nav className= "navbar">
