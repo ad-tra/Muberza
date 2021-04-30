@@ -1,0 +1,74 @@
+.navbar{
+    position: absolute;
+    width: 100%;
+    top:0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
+    padding-right: $navbarXPadding; 
+    @media (max-width: $breakpointMobile) {
+        flex-direction: column;
+        padding:0;
+    }
+    
+    &_controls{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @media (max-width: $breakpointMobile) {
+            padding: 0 $navbarXPadding;
+            width: 100%;
+        }
+        .logo svg{
+            height: 1em;
+            min-height: 40px;  
+        }
+        .burger{
+            background-color: transparent;
+            border: none;
+            padding: 0;
+            svg{fill: $accentR}
+            display: none;
+            cursor: pointer;
+            @media (max-width: $breakpointMobile) {
+                display: inherit;
+                margin:$navbarYpadding 0;
+            } 
+        }
+    }
+
+    &_links{
+        display: flex;
+        justify-content: flex-start;
+        padding-left: $navbarXPadding;
+        width: var(--mainSplitCC) /* supposed to be 60vw. 100vw - 40vw, fix this bug*/;
+        background: linear-gradient(180deg, lighten( saturate($primaryG, 100% ), 8%), transparent 98%);
+        @media (max-width: $breakpointMobile) {
+            width: 100%;
+            flex-direction: column;
+            padding:0;
+            align-items: center;
+            justify-content: center;
+            height: calc(100vh - (#{$navbarYpadding} * 2 + 7px ) );
+            background: $primaryG;
+            display: none;
+        }
+        li{
+            padding:$navbarYpadding;
+            @media (max-width: $breakpointMobile){
+                background: linear-gradient(90deg, transparent, lighten( saturate($primaryG, 10% ), 4%), transparent 57%);
+            }
+        }
+        a{
+            text-decoration:none;
+            color: $accentG;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+    }
+    .expanded{
+        display:inherit;
+    }
+}
