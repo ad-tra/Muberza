@@ -1,12 +1,12 @@
 import React from 'react'
 import Navbar from './Navbar'
 
-export default function Layout(props){
+export default function Layout({children}){
     return (
         <div>
             <Navbar />
             
-            {props.children}
+            {children}
             
             <footer>footer</footer>
         </div>
