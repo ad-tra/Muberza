@@ -12,15 +12,16 @@
 ## 🔨 Task List 
 - [ ] Nav Bar
   - [x] Start and Finish styling 
-  - [ ] Add a humberger menu
+  - [x] Add a humberger menu
 - [ ] Clashing Cut 
   - [x] Finish styling by using `background-clip`
   - [x] Make it responsive
+  - [ ] consider changing copy of 'muberza' with '50 malyoun' or other catchy header
 - [ ] Politician Card
   - [x] Finish styling by adding gradient design els.
   - [x] Add politician images into the graphQL layer.
   - [ ] Make it responsive.
-  - [ ] use SASS mixin to ensure DRY code in .karama .dostouri  
+  - [x] use SASS mixin to ensure DRY code in .karama .dostouri  
 - [ ] Politician Pages
   - [x] explore and use `createPages` api function to dynamically create pages.
   - [ ] Chart.js
