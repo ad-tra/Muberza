@@ -29,7 +29,7 @@
             background-color: transparent;
             border: none;
             padding: 0;
-            svg{fill: $accentR}
+            svg{fill: $red--light}
             display: none;
             cursor: pointer;
             @media (max-width: $breakpointMobile) {
@@ -44,7 +44,7 @@
         justify-content: flex-start;
         padding-left: $navbarXPadding;
         width: var(--mainSplitCC) /* supposed to be 60vw. 100vw - 40vw, fix this bug*/;
-        background: linear-gradient(180deg, lighten( saturate($primaryG, 100% ), 8%), transparent 98%);
+        background: linear-gradient(180deg, lighten( saturate($green--light, 100% ), 8%), transparent 98%);
         @media (max-width: $breakpointMobile) {
             width: 100%;
             flex-direction: column;
@@ -52,18 +52,18 @@
             align-items: center;
             justify-content: center;
             height: calc(100vh - (#{$navbarYpadding} * 2 + 7px ) );
-            background: $primaryG;
+            background: $green--light;
             display: none;
         }
         li{
             padding:$navbarYpadding;
             @media (max-width: $breakpointMobile){
-                background: linear-gradient(90deg, transparent, lighten( saturate($primaryG, 10% ), 4%), transparent 57%);
+                background: linear-gradient(90deg, transparent, lighten( saturate($green--light, 10% ), 4%), transparent 57%);
             }
         }
         a{
             text-decoration:none;
-            color: $accentG;
+            color: $green--dark;
             font-size: 1.2em;
             font-weight: 600;
         }

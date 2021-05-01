@@ -33,8 +33,8 @@ export default function PoliticianCard({politician}){
                     
                 </div>
             
-            <Link to={`/politicians/${politician.slug}`} className="butt">شــوف أكثر  معلــومـات</Link>
-            <div className="degrade smoll" aria-hidden= "true"></div>
+            <Link to={`/politicians/${politician.slug}`} className="button_butt">شــوف أكثر  معلــومـات</Link>
+            <div className="degrade degrade--smoll" aria-hidden= "true"></div>
             </div>
         </section>
     )

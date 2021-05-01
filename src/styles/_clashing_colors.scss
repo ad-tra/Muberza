@@ -1,81 +1,15 @@
-
-.dostouri{
-    color: $accentR;
-    background-color: $primaryR;
-    .politician_card{
-        background-color:rgba($accentR,0.08)
-    }
-    .degrade{
-        /* DRY: later modulate with sass maxin or other future.*/
-        background: linear-gradient(-90deg, $accentR 0%, transparent 98%);
-        height: 5em;
-        width: 100%;
-        opacity: 0.26;
-    }
-    .smoll{
-        background: linear-gradient(90deg,$accentR 0%, transparent 98%);
-        width: 12em;
-        position: absolute;
-        left:0;
-        top:2em;
-        opacity: 0.1;
-    }
-    .butt{
-        color:$accentR;
-        background: linear-gradient(0deg, rgba($primaryG, 0.16) 0%, transparent 98%);
-
-    }
-    .butt:before{
-        box-shadow: 0 50px 0 0 $accentR;
-    }
-
-}
-.karama{
-    color: $accentG;
-    background-color: $primaryG;
-    .politician_card{
-        background-color: rgba($accentG,0.08);
-    }
-    .degrade{
-        background: linear-gradient(-90deg, $accentG 0%, transparent 98%);
-        height: 5em;
-        width: 100%;
-        opacity: 0.5;
-    }
-    .smoll{
-        background: linear-gradient(90deg,$accentG 0%, transparent 98%);
-        width: 12em;
-        position:absolute;
-        left:0;
-        top:2em;
-        opacity: 0.18;
-
-    }
-    .butt{
-        color:$accentG;
-        background: linear-gradient(0deg, rgba($accentR, 0.3) 0%, transparent 98%);
-    }
-    .butt:before{
-        box-shadow: 0 50px 0 0 $accentG;
-
-    }
-}
-
-
-
-
 .clashing_colors{
-    background: linear-gradient(90deg, $primaryG var(--mainSplitCC), $primaryR 0);
+    background: linear-gradient(90deg, $green--light var(--mainSplitCC), $red--dark 0);
     min-height: 100vh;
     position: relative;
     overflow: hidden;
     @media (max-width: $breakpointMobile){
-        background: linear-gradient(180deg,  $primaryR var(--mainSplitCC), $primaryG 0);
+        background: linear-gradient(180deg,  $red--dark var(--mainSplitCC), $green--light 0);
     }
     .headers_container { 
         $headerRightMargin: 31vw;
         margin: 6em 0;
-        background: linear-gradient(90deg, $accentG var(--mainSplitCC), $accentR 0);
+        background: linear-gradient(90deg, $green--dark var(--mainSplitCC), $red--light 0);
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -84,7 +18,7 @@
             $headerTopMargin: 12vh;
             margin: $headerTopMargin auto 0 auto;
             width: 95%;
-            background: linear-gradient(180deg,  $accentR calc(var(--mainSplitCC) - #{$headerTopMargin}), $accentG 0);
+            background: linear-gradient(180deg,  $red--light calc(var(--mainSplitCC) - #{$headerTopMargin}), $green--dark 0);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -131,7 +65,7 @@
             right: -1.6em;
             z-index: 2;
             text-decoration:none;
-            color: $accentG;
+            color: $green--dark;
             font-size: 1.2em;
             font-weight: 600;
             @media(max-width: $breakpointMobile){
@@ -140,7 +74,7 @@
             }
         }
         .degrade{
-            background: linear-gradient(0deg, rgba($accentR, 0.5) 0%, transparent 98%);
+            background: linear-gradient(0deg, rgba($red--light, 0.5) 0%, transparent 98%);
             position: relative;
         }
         .degrade:nth-child(2){
