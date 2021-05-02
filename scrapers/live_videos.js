@@ -12,7 +12,7 @@ for (let j = 0; j< nodes.length ;j++) {
     if (vusNum.match("M") != null) {
         vusNum = parseFloat(vusNum.match(/[\d.]+/)[0]) * 1000000
     }
-    vusNum = parseInt(result);
+    vusNum = parseInt(vusNum);
     liveViewsCount += vusNum
 
     let vusDate = nodes[j].parentElement.textContent.match(/· (.*)/)[1]
@@ -22,5 +22,5 @@ for (let j = 0; j< nodes.length ;j++) {
 
 }
 
-let resultObj = {"data": data, "vuesPerLive" :liveViewsCount/j ,"aggregateViews": liveViewsCount }
+let resultObj = {"data": data, "vuesPerLive" :liveViewsCount/nodes.length ,"aggregateViews": liveViewsCount }
 console.log(resultObj)
