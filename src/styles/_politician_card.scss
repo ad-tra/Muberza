@@ -1,10 +1,14 @@
+/* since first element(abir) is off diferrent color, increase its margin, and give it space*/
+section .politician_card_container:first-of-type .politician_card {margin: 13em auto;}
+
+.politician_card_container {overflow: auto;}
+
 .politician_card {
     position: relative;
     display: flex;
     flex-direction: row-reverse;
-    margin: 4em auto;
+    margin: 8em auto;
     max-width: 1500px;
-    padding-top: 10em;
     @media (max-width: $breakpointMobile) {
         flex-direction: column;
         align-items: flex-end;
@@ -66,7 +70,7 @@
         width: 100%;
     }
     .degrade--smoll{
-        width: 12em;
+        width: 10em;
         position: absolute;
         left: 0;
         top: 2em;
@@ -74,27 +78,28 @@
 }
 
 
-/* since first element(abir) is off diferrent color, increase its margin, and give it space*/
-section .politician_card_container:first-of-type .politician_card {margin: 13em auto;}
-.politician_card_container {overflow: auto;}
-
 
 @mixin addPartyColors($primary, $secondary, $background ){
     color: $primary;
     background-color: $background;
     .politician_card {
-        background-color: rgba($primary, 0.08);
         .degrade {
-            background: linear-gradient(-90deg, $primary 0%, transparent 98%);
+            background: linear-gradient(-90deg, $primary 50%, transparent);
             opacity: 0.26;
         }
         .degrade--smoll {
-            background: linear-gradient(90deg, $primary 0%, transparent 98%);
-            opacity: 0.1;
+            background: linear-gradient(90deg, $primary 0%, transparent);
+            opacity: 0.36;
         }
         .button_butt {
             color: $primary;
-            background: linear-gradient(0deg,rgba($secondary, 0.16) 0%,transparent 98%);
+            
+            @if($primary == $green--dark){
+                /*Karama gets a darker filter to offset color differences */
+                background: linear-gradient(0deg,rgba(lighten($secondary,5%), 0.5) 20% ,transparent );
+            } @else{
+                background: linear-gradient(0deg,rgba($secondary, 0.1) 20%,transparent);
+            }
         }
         .button_butt:before {
             box-shadow: 0 50px 0 0 $primary;
