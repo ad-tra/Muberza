@@ -10,7 +10,7 @@
 <p align= "center">Development Dances / Comming Consecutively</p>
 
 ## 🔨 Task List 
-- [ ] Nav Bar
+- [x] Nav Bar
   - [x] Start and Finish styling 
   - [x] Add a humberger menu
 - [ ] Clashing Cut 
@@ -22,6 +22,11 @@
   - [x] Add politician images into the graphQL layer.
   - [ ] Make it responsive.
   - [x] use SASS mixin to ensure DRY code in .karama .dostouri  
+- [ ] internationalize with i18n
+  - [ ] tn arabic
+  - [ ] vanilla arabic 
+  - [ ] english
+  - [ ] french. maybe??? 
 - [ ] Politician Pages
   - [x] explore and use `createPages` api function to dynamically create pages.
   - [ ] Chart.js
