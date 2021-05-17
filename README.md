@@ -24,8 +24,8 @@
   - [x] use SASS mixin to ensure DRY code in .karama .dostouri  
 - [ ] internationalize with i18n
   - [ ] tn arabic
-  - [ ] vanilla arabic 
   - [ ] english
+  - [ ] vanilla arabic
   - [ ] french. maybe??? 
 - [ ] Politician Pages
   - [x] explore and use `createPages` api function to dynamically create pages.
