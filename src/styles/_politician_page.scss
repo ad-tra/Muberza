@@ -1,0 +1,53 @@
+.politician_page{
+    .headers_container{
+        margin: 0 auto;
+        padding: 10em 0;
+        width: 100%;
+        max-width: 1300px;
+        text-align: center;
+        h1{
+            font-size: 8em;
+            text-align: inherit;
+        }
+        p{
+            font-size:1.5em;
+            text-align: inherit;
+            margin-top:0.5em;
+        }
+        .emphesis{
+            background: rgba(136, 136, 136, 0.404)
+        }
+    }
+    /*chart js*/
+    .ta7lil_container{
+        margin: 0 auto;
+        max-width: 600px;
+        h3{
+            font-size: 2.8em;
+        }
+        p{
+            font-size: 1.2em;
+            margin-top:1em;
+            line-height: 2em;
+        }
+    }
+}
+
+@mixin addPartyColors($primary, $secondary, $complemantary){
+.politician_page{
+    background: $primary;
+    .headers_container{
+        color: $secondary;
+        .emphesis{
+            background: linear-gradient(180deg, $complemantary 90%, transparent)
+        }
+    }
+    .ta7lil_container{
+        background: $secondary
+    }
+}
+}
+
+.dostouri{
+    @include addPartyColors($red--dark, $red--light, $green--light)
+}
