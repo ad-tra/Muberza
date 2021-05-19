@@ -107,10 +107,10 @@ section .politician_card_container:first-of-type .politician_card {margin: 13em 
     }
 }
 
-.dostouri {
+.pc--dostouri {
     @include addPartyColors($red--light, $green--light, $red--dark);
 }
-.karama{
+.pc--karama{
     @include addPartyColors($green--dark, $red--light, $green--light )
 }
 

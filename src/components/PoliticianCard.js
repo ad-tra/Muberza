@@ -7,7 +7,7 @@ import { GatsbyImage} from 'gatsby-plugin-image';
 export default function PoliticianCard({politician}){
 
     return(
-        <section className= {"politician_card_container "+ politician.party} >
+        <section className= {`politician_card_container pc--${politician.party}`} >
             <div className = "politician_card">
                     
                 <div className="politician_image">

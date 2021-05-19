@@ -14,13 +14,13 @@
             text-align: inherit;
             margin-top:0.5em;
         }
-        .emphesis{
-            background: rgba(136, 136, 136, 0.404)
-        }
     }
-    /*chart js*/
+    .chart_container{
+        margin: 0 auto;
+    }
     .ta7lil_container{
         margin: 0 auto;
+        padding-top:10em;
         max-width: 600px;
         h3{
             font-size: 2.8em;
@@ -34,20 +34,20 @@
 }
 
 @mixin addPartyColors($primary, $secondary, $complemantary){
-.politician_page{
+
     background: $primary;
     .headers_container{
         color: $secondary;
-        .emphesis{
-            background: linear-gradient(180deg, $complemantary 90%, transparent)
+        .emphasis{
+            background: linear-gradient(-90deg, rgba($complemantary, 0.3), transparent);
         }
     }
     .ta7lil_container{
-        background: $secondary
+        color: $secondary
     }
-}
+
 }
 
-.dostouri{
+.pp--dostouri{
     @include addPartyColors($red--dark, $red--light, $green--light)
 }
