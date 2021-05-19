@@ -30,7 +30,7 @@
 - [ ] Politician Pages
   - [x] explore and use `createPages` api function to dynamically create pages.
   - [ ] implement adobe xd design with headers and ta7lil ta9ni
-  - [ ] Chart.js
+  - [ ] Recharts. bye bye charts.js :(
     - [ ] Collect data in form [...{"date" "MARS 8", "vues": 1677781}]
     - [ ] generate a line graph with consistent-scale x-axis
     - [ ] Design the UI for graphs.
