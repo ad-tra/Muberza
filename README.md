@@ -7,7 +7,7 @@
 <h1 align="center">
    Muberza 💢
 </h1>
-<p align= "center">Development Dances...</p>
+<p align= "center">Development Dances / Comming Soon </p>
 
 ## 🔨 Task List 
 - [x] Nav Bar
