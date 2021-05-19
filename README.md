@@ -33,8 +33,8 @@
   - [ ] Recharts. bye bye charts.js :(
     - [ ] Collect data in form [...{"date" "MARS 8", "vues": 1677781}]
     - [ ] generate a line graph with consistent-scale x-axis
-    - [ ] Design the UI for graphs.
-    - [ ] Brainstorm user control features: (ex) Compare a politician to another politician/youtuber/instagrameuse...  
+    - [x] Design the UI for graphs.
+    - [x] Brainstorm user control features: (ex) Compare a politician to another politician/youtuber/instagrameuse...  
 
 ## Hero Preview 
 ![enter image description here](https://i.imgur.com/RN8k8Vp.png)
