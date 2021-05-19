@@ -1,46 +1,47 @@
 import React from 'react'
+import dayjs from 'dayjs'
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import Layout from '../components/Layout'
 
+import Layout from '../components/Layout'
 const data = [
   {
-    name: 'Page A',
+    time: 1621442646144,
     uv: 4000,
     pv: 2400,
     amt: 2403,
   },
   {
-    name: 'Page B',
+    time: 1621443646144,
     uv: 3000,
     pv: 1398,
     amt: 2210,
   },
   {
-    name: 'Page C',
+    time: 1621444646144,
     uv: 2000,
     pv: 9800,
     amt: 2290,
   },
   {
-    name: 'Page D',
+    time: 1621445646144,
     uv: 2780,
     pv: 3908,
     amt: 2000,
   },
   {
-    name: 'Page E',
+    time: 1621446646144,
     uv: 1890,
     pv: 4800,
     amt: 2181,
   },
   {
-    name: 'Page F',
+    time: 1621447646144,
     uv: 2390,
     pv: 3800,
     amt: 2500,
   },
   {
-    name: 'Page G',
+    time: 162448646144,
     uv: 3489,
     pv: 4299,
     amt: 2099,
@@ -71,7 +72,7 @@ export default function templatePP() {
                 }}
                 >
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
+                <XAxis dataKey="time" domain={["auto","auto"]} scale="time" type="number" tickFormatter = {unixTime=> dayjs(unixTime).format("MMM D")}/>
                 <YAxis />
                 <Tooltip />
                 <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
@@ -86,3 +87,9 @@ export default function templatePP() {
         </Layout>
     )
 }
+/*
+change font to meral
+change color to red--light
+add XD matching gradient for area.
+
+*/

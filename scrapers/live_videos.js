@@ -1,26 +1,37 @@
-let vusNum = ""
-let data = []
-let nodes = document.querySelectorAll('span.fcg');
-let liveViewsCount = 0;
+import dayjs from "dayjs"
 
-for (let j = 0; j< nodes.length ;j++) {
-    //if (nodes[j].parentElement.textContent.match("2020") != null)
-    //    break;
-    
-    vusNum = nodes[j].textContent.replace(" views", "").replace("K", "000")
+function stringToViewsInt(viewsStr){
+    let result = viewsStr
+    .replace(" views", "")
+    .replace("K", "000")
+    .replace(/.*M\b/, parseFloat(viewsStr.match(/[\d.]*/)[0])  * 1000000)
 
-    if (vusNum.match("M") != null) {
-        vusNum = parseFloat(vusNum.match(/[\d.]+/)[0]) * 1000000
-    }
-    vusNum = parseInt(vusNum);
-    liveViewsCount += vusNum
-
-    let vusDate = nodes[j].parentElement.textContent.match(/· (.*)/)[1]
-    
-
-    data.push({"x": vusDate, "y": vusNum})
-
+    return parseInt(result);
+}
+function stringToDurationSec(durationStr){
+    return durationStr
+    .split(":")
+    .reverse()
+    .reduce((accumulator, currentValue, currentIndex)=>{
+        return accumulator + (currentValue * 60 ** currentIndex)
+    },0)
 }
 
-let resultObj = {"data": data, "vuesPerLive" :liveViewsCount/nodes.length ,"aggregateViews": liveViewsCount }
-console.log(resultObj)
+
+let livesArr = []
+let livesEls = document.querySelectorAll('span.fcg');
+let aggregateViews = 0;
+
+for (let j = 0; j< livesEls.length ;j++) {
+
+    let viewsNum = stringToViewsInt(livesEls[j].textContent)
+    let viewsDate = livesEls[j].parentElement.textContent.match(/· (.*)/)[1]
+    let liveDuration = stringToDurationSec(livesEls[j].offsetParent.querySelector("._51m- ._5ig6").textContent)
+
+    aggregateViews += viewsNum
+    livesArr.push({"date": viewsDate, "views": viewsNum, "duration": liveDuration})
+}
+
+let livesObj = {"data": livesArr, "vuesPerLive" :aggregateViews/livesEls.length ,"aggregateViews": aggregateViews }
+console.log(livesObj)
+
