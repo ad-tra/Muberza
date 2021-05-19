@@ -34,7 +34,7 @@ export default function Index () {
     )
 
     return (
-        <Layout> 
+        <Layout className="nav--karama"> 
             <ClashingColors
             headerText="مــــــبـــا ر ز ة"
             subheaderText="بوق في البرلمـــان و مبارزة في المطار. عبير كونتر سـيــف هو طـــرح يـتفرجو فيها مـلاين توانسا على Facebook Lives. زعما شكون ر ابـح الطرح؟ شكون عندو نسب مشــاهدة أعلـى؟ تزحلق اللوطة, انبهر واتعرف  على الأ رقام.">

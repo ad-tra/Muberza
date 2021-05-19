@@ -44,7 +44,6 @@
         justify-content: flex-start;
         padding-left: $navbarXPadding;
         width: var(--mainSplitCC) /* supposed to be 60vw. 100vw - 40vw, fix this bug*/;
-        background: linear-gradient(180deg, lighten( saturate($green--light, 100% ), 8%), transparent 98%);
         @media (max-width: $breakpointMobile) {
             width: 100%;
             flex-direction: column;
@@ -71,4 +70,26 @@
     .expanded{
         display:inherit;
     }
+}
+
+@mixin addPartyColors($primary, $secondary){
+.navbar{
+    &_links{
+        @if($primary == $green--light){
+            background: linear-gradient(180deg, lighten( saturate($primary, 100% ), 8%), transparent 98%);
+        }@else{
+            background: linear-gradient(180deg, rgba($secondary, 0.16),transparent 98%);
+        }
+        
+    }
+    a{
+        color: $secondary;
+    }
+}
+}
+.nav--karama{
+    @include addPartyColors($green--light, $green--dark)
+}
+.nav--dostouri{
+    @include addPartyColors($red--dark, $red--light)
 }

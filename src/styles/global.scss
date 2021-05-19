@@ -31,7 +31,7 @@ $breakpointMobile: 1200px;
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
-h1, h2, h3, h4, h5, h6{
+h1, h2, h3, .politician_page .emphasis, h4, h5, h6{
     font-family: "TS Ateq";
     font-weight: 400;
 }
@@ -44,7 +44,7 @@ ul{list-style: none;}
 @import "./clashing_colors";
 @import "./politician_card";
 
-
+@import "./politician_page"
 
 
 
