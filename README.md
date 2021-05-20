@@ -7,7 +7,7 @@
 <h1 align="center">
    Muberza 💢
 </h1>
-<p align= "center">Development Dances / Comming Consecutively</p>
+<p align= "center">Development Dances / Comming Soon </p>
 
 ## 🔨 Task List 
 - [x] Nav Bar
@@ -29,7 +29,7 @@
   - [ ] french. maybe??? 
 - [ ] Politician Pages
   - [x] explore and use `createPages` api function to dynamically create pages.
-  - [ ] implement adobe xd design with headers and ta7lil ta9ni
+  - [x] implement adobe xd design with headers and ta7lil ta9ni
   - [ ] Recharts. bye bye charts.js :(
     - [ ] Collect data in form [...{"date" "MARS 8", "vues": 1677781}]
     - [ ] generate a line graph with consistent-scale x-axis
