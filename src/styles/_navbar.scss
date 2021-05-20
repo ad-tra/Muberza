@@ -23,7 +23,9 @@
         }
         .logo svg{
             height: 1em;
-            min-height: 40px;  
+            min-height: 40px; 
+            .cls-1{fill: $green--light;}
+            .cls-2{fill: $red--light} 
         }
         .burger{
             background-color: transparent;
@@ -72,11 +74,16 @@
     }
 }
 
-@mixin addPartyColors($primary, $secondary){
-.navbar{
-    &_links{
+
+
+
+
+
+@mixin addPartyColors($primary, $secondary, $lightenPercent: 6%){
+
+    .navbar_links{
         @if($primary == $green--light){
-            background: linear-gradient(180deg, lighten( saturate($primary, 100% ), 8%), transparent 98%);
+            background: linear-gradient(180deg, lighten( saturate($primary, 100% ), $lightenPercent), transparent 98%);
         }@else{
             background: linear-gradient(180deg, rgba($secondary, 0.16),transparent 98%);
         }
@@ -85,11 +92,23 @@
     a{
         color: $secondary;
     }
-}
+
 }
 .nav--karama{
-    @include addPartyColors($green--light, $green--dark)
+    @include addPartyColors($green--light, $green--dark, 1%);
+    .navbar_controls{
+        .burger svg{
+            fill: $green--dark
+        }
+        .logo svg{
+            .cls-1{fill:$green--dark;}
+            .cls-2{fill:darken($red--light, 25%)}
+        }
+    } 
 }
 .nav--dostouri{
     @include addPartyColors($red--dark, $red--light)
+}
+.nav--clashing_colors{
+    @include addPartyColors($green--light, $green--dark)
 }

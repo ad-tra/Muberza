@@ -12,7 +12,7 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
         }
     `)
     
-    results.data.allPoliticiansJson.edges.forEach((edge)=>{
+    results.data.allApiJson.edges.forEach((edge)=>{
         const politician = edge.node;
 
         createPage({

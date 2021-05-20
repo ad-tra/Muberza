@@ -51,3 +51,7 @@
 .pp--dostouri{
     @include addPartyColors($red--dark, $red--light, $green--light)
 }
+
+.pp--karama{
+    @include addPartyColors($green--light, $green--dark, $red--light)
+}
