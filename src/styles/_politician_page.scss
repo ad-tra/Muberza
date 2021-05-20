@@ -33,13 +33,13 @@
     }
 }
 
-@mixin addPartyColors($primary, $secondary, $complemantary){
+@mixin addPartyColors($primary, $secondary, $complementary){
 
     background: $primary;
     .headers_container{
         color: $secondary;
         .emphasis{
-            background: linear-gradient(-90deg, rgba($complemantary, 0.3), transparent);
+            background: linear-gradient(-90deg, rgba($complementary, 0.3), transparent);
         }
     }
     .ta7lil_container{

@@ -1,3 +1,4 @@
+// cSpell:disable
 import React from 'react'
 import dayjs from 'dayjs'
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';

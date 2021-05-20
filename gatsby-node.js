@@ -1,11 +1,12 @@
 exports.createPages = async ({ actions: { createPage }, graphql }) => {
     const results = await graphql(`
         {
-            allPoliticiansJson {
+            allApiJson {
                 edges {
-                    node {
-                        slug
-                    }
+                  node {
+                    slug
+                    id
+                  }
                 }
             }
         }
@@ -13,13 +14,12 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
     
     results.data.allPoliticiansJson.edges.forEach((edge)=>{
         const politician = edge.node;
-        console.log(politician.slug);
-        
+
         createPage({
             path: `/politicians/${politician.slug}/`,
             component: require.resolve('./src/templates/PoliticianPage.js'),
             context : {
-                slug: politician.slug
+                id: politician.id
             }
         })
     })

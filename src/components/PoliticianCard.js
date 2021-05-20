@@ -4,7 +4,9 @@ import {Link} from 'gatsby';
 import { GatsbyImage} from 'gatsby-plugin-image';
 
 
+
 export default function PoliticianCard({politician}){
+    const briefViewrshipStats = politician.viewrshipStats == null ? [] : Object.values(politician.viewrshipStats.brief)
 
     return(
         <section className= {`politician_card_container pc--${politician.party}`} >
@@ -21,11 +23,12 @@ export default function PoliticianCard({politician}){
                     <p>{politician.briefDiscrp}</p>
                     
                     <ul>
-                        {politician.briefStats.map((statObj) =>{
+                         
+                        {briefViewrshipStats.map((statObj) =>{
                             return (
                                 <li>
-                                    <span>{statObj.key}: </span>
-                                    <span>{statObj.value}</span>
+                                    <span>ar9am wa 7ikam: </span>
+                                    <span>{statObj}</span>
                                 </li>
                             )
                         })}

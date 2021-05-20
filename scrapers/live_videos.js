@@ -18,20 +18,30 @@ function stringToDurationSec(durationStr){
 }
 
 
-let livesArr = []
+let livesDataArr = []
 let livesEls = document.querySelectorAll('span.fcg');
-let aggregateViews = 0;
+let aggregateViews = 0, aggregateDuration;
 
 for (let j = 0; j< livesEls.length ;j++) {
 
-    let viewsNum = stringToViewsInt(livesEls[j].textContent)
-    let viewsDate = livesEls[j].parentElement.textContent.match(/· (.*)/)[1]
+    let liveViews = stringToViewsInt(livesEls[j].textContent)
+    let liveDate = livesEls[j].parentElement.textContent.match(/· (.*)/)[1]
     let liveDuration = stringToDurationSec(livesEls[j].offsetParent.querySelector("._51m- ._5ig6").textContent)
 
-    aggregateViews += viewsNum
-    livesArr.push({"date": viewsDate, "views": viewsNum, "duration": liveDuration})
+    aggregateViews += liveViews
+    aggregateDuration += liveDuration
+
+    livesDataArr.push({"date": liveDate, "views": liveViews, "duration": liveDuration})
 }
 
-let livesObj = {"data": livesArr, "vuesPerLive" :aggregateViews/livesEls.length ,"aggregateViews": aggregateViews }
-console.log(livesObj)
+let livesObj = {
+    "full": livesDataArr,
+    "brief": {
+        "viewsPerLive" :aggregateViews/livesEls.length ,
+        "aggregateViews": aggregateViews,
+        "aggregateDuration": aggregateDuration 
+    }
+}
+
+console.log(JSON.stringify(livesObj))
 

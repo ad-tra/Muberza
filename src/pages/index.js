@@ -9,27 +9,29 @@ import Layout from '../components/Layout.js'
 export default function Index () {
     const polisArr = useStaticQuery(
         graphql`
-            query MyPolis {
-                allPoliticiansJson(sort: { fields: party }) {
-                    edges {
-                        node {
-                            briefDiscrp
-                            slug
-                            briefStats {
-                                key
-                                value
-                            }
-                            name
-                            party
-                            thumbImage {
-                                childrenImageSharp {
-                                    gatsbyImageData(placeholder: NONE)
-                                }
-                            }
-                        }
+        query MyPolis {
+            allApiJson(sort: {fields: party}) {
+              edges {
+                node {
+                  briefDiscrp
+                  name
+                  party
+                  slug
+                  thumbImage {
+                    childrenImageSharp {
+                      gatsbyImageData(placeholder: NONE)
                     }
+                  }
+                  viewrshipStats {
+                    brief {
+                      aggregateViews
+                      viewsPerLive
+                    }
+                  }
                 }
+              }
             }
+          }
         `
     )
 
@@ -43,7 +45,7 @@ export default function Index () {
             
             </ClashingColors>
             <section id= "hero_content">
-                {polisArr.allPoliticiansJson.edges.map((edge) => {return <PoliticianCard politician={edge.node} />})}
+                {polisArr.allApiJson.edges.map((edge) => {return <PoliticianCard politician={edge.node} />})}
             </section>
 
         </Layout>
