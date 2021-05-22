@@ -8,6 +8,9 @@
    Muberza 💢
 </h1>
 <p align= "center">Development Dances / Comming Soon </p>
+<p align = "center">if you want to contribute, feel free to submit a pull request. Mate7chmch. You can also <a href="mailto:adamtrabelsi203@gmail.com?subject=Muberza"> Contact Me </a></p>
+
+
 
 ## 🔨 Task List 
 - [x] Nav Bar
