@@ -1,3 +1,5 @@
+//const scraperVS = require("./scrapers/mainVS");
+
 exports.createPages = async ({ actions: { createPage }, graphql }) => {
     const results = await graphql(`
         {
@@ -5,14 +7,18 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
                 edges {
                   node {
                     slug
+                    facebookSlug
                     id
                   }
                 }
             }
         }
     `)
+    const politicians = results.data.allApiJson.edges
     
-    results.data.allApiJson.edges.forEach((edge)=>{
+    //await scraper.main(politicians);
+
+    politicians.forEach((edge)=>{
         const politician = edge.node;
 
         createPage({

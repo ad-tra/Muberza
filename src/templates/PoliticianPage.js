@@ -9,7 +9,7 @@ export const query = graphql`
     query PoliticianPage($id: String!) {
         apiJson(id: {eq: $id}) {
         party
-        viewrshipStats {
+        viewershipStats {
             brief {
             aggregateViews
             viewsPerLive

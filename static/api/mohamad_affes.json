@@ -1,9 +1,1 @@
-{
-    "party": "karama",
-    "name": "محمد العفاس",
-    "briefDiscrp": "لكن لا بــــد أن أوضح لك أن كل هذه الأفكار لمغلوطــة حول ",
-    "thumbImage": "../../data/images/mo7amad_head.png",
-    "slug": "mohamad-affes",
-    "facebookSlug":"Dr.MohamedAffes",
-    "viewrshipStats":null
-}
+{"party":"karama","name":"محمد العفاس","briefDiscrp":"لكن لا بــــد أن أوضح لك أن كل هذه الأفكار لمغلوطــة حول ","thumbImage":"../../data/images/mo7amad_head.png","slug":"mohamad-affes","facebookSlug":"Dr.MohamedAffes","viewershipStats":{"full":[{"date":"March 24","views":45000,"duration":461},{"date":"March 23","views":53000,"duration":351},{"date":"March 23","views":64000,"duration":616},{"date":"March 18","views":122000,"duration":418},{"date":"March 15","views":72000,"duration":1215},{"date":"March 15","views":15000,"duration":327},{"date":"March 10","views":47000,"duration":1211},{"date":"March 10","views":31000,"duration":2522},{"date":"March 10","views":20000,"duration":483},{"date":"March 9","views":24000,"duration":360},{"date":"March 9","views":68000,"duration":1059},{"date":"March 8","views":21000,"duration":372},{"date":"March 8","views":29000,"duration":949},{"date":"February 3","views":93000,"duration":1883},{"date":"January 3","views":46000,"duration":909},{"date":"December 7, 2020","views":58000,"duration":621}],"brief":{"viewsPerLive":50500,"aggregateViews":808000,"aggregateDuration":null}}}

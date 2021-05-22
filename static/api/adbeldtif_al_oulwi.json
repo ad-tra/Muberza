@@ -1,9 +1,1 @@
-{
-    "party": "karama",
-    "name": "عبد اللطيف العلوي",
-    "briefDiscrp": "لكن لا بــــد أن أوضح لك أن كل هذه الأفكار لمغلوطــة حول ",
-    "thumbImage": "../../data/images/3bdltif_head.png",
-    "slug": "adbeldtif-al-oulwi",
-    "facebookSlug":"ABDELLATIFALOUI22",
-    "viewrshipStats": null
-}
+{"party":"karama","name":"عبد اللطيف العلوي","briefDiscrp":"لكن لا بــــد أن أوضح لك أن كل هذه الأفكار لمغلوطــة حول ","thumbImage":"../../data/images/3bdltif_head.png","slug":"adbeldtif-al-oulwi","facebookSlug":"ABDELLATIFALOUI22","viewershipStats":{"full":[{"date":"April 7","views":103000,"duration":1444},{"date":"March 15","views":33000,"duration":384},{"date":"March 15","views":18000,"duration":48},{"date":"March 15","views":10000,"duration":4},{"date":"March 15","views":53000,"duration":275},{"date":"March 15","views":27000,"duration":72},{"date":"March 15","views":50000,"duration":232},{"date":"March 15","views":323000,"duration":802},{"date":"March 10","views":74000,"duration":1953},{"date":"March 10","views":59000,"duration":1588},{"date":"March 10","views":29000,"duration":475},{"date":"March 4","views":37000,"duration":165},{"date":"March 4","views":15000,"duration":208},{"date":"March 4","views":35000,"duration":433},{"date":"February 25","views":99000,"duration":3109},{"date":"February 18","views":10000,"duration":215}],"brief":{"viewsPerLive":60937.5,"aggregateViews":975000,"aggregateDuration":null}}}

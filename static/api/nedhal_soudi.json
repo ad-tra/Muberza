@@ -1,9 +1,1 @@
-{
-    "party": "karama",
-    "name": "نضال سعودي",
-    "briefDiscrp": "لكن لا بــــد أن أوضح لك أن كل هذه الأفكار لمغلوطــة حول ",
-    "thumbImage": "../../data/images/ni4al_head.png",
-    "slug": "nedhal-soudi",
-    "facebookSlug":"nidhalsaoudi89",
-    "viewrshipStats":null
-}
+{"party":"karama","name":"نضال سعودي","briefDiscrp":"لكن لا بــــد أن أوضح لك أن كل هذه الأفكار لمغلوطــة حول ","thumbImage":"../../data/images/ni4al_head.png","slug":"nedhal-soudi","facebookSlug":"nidhalsaoudi89","viewershipStats":{"full":[{"date":"May 8","views":4,"duration":501},{"date":"February 10","views":111000,"duration":1047},{"date":"February 8","views":41000,"duration":740},{"date":"December 10, 2020","views":140000,"duration":571},{"date":"December 9, 2020","views":38000,"duration":442},{"date":"November 19, 2020","views":8000,"duration":552},{"date":"November 19, 2020","views":17000,"duration":511},{"date":"November 8, 2020","views":10000,"duration":4236},{"date":"July 29, 2020","views":4,"duration":65},{"date":"July 17, 2020","views":33000,"duration":269},{"date":"July 10, 2020","views":84000,"duration":544},{"date":"March 27, 2020","views":5,"duration":1251}],"brief":{"viewsPerLive":40167.75,"aggregateViews":482013,"aggregateDuration":null}}}

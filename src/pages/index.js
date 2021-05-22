@@ -22,7 +22,7 @@ export default function Index () {
                       gatsbyImageData(placeholder: NONE)
                     }
                   }
-                  viewrshipStats {
+                  viewershipStats {
                     brief {
                       aggregateViews
                       viewsPerLive
