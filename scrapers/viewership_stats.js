@@ -1,8 +1,8 @@
-const dayjs =require("dayjs");
 
 
 
-function getStats(){ 
+
+async function getStats(){ 
     
     function stringToViewsInt(viewsStr){
         let result = viewsStr
@@ -13,6 +13,7 @@ function getStats(){
         return parseInt(result);
     }
     function stringToDurationSec(durationStr){
+        if(!durationStr) return 0;
         return durationStr
         .split(":")
         .reverse()
@@ -20,37 +21,66 @@ function getStats(){
             return accumulator + (currentValue * 60 ** currentIndex)
         },0)
     }
+    function sleep (time) {
+        return new Promise((resolve) => setTimeout(resolve, time));
+    }
+
     
-    
-    try{ 
-        let livesDataArr = []
-        let livesEls = document.querySelectorAll('span.fcg');
-        let aggregateViews = 0, aggregateDuration;
+    const FLOORER = 2020
+    if( new Date().getFullYear() == FLOORER) throw new Error("I'm lazy to make it work on current year. floor year should be set to one year ago minimum");
 
-        for (let j = 0; j< livesEls.length ;j++) {
+    const result = [];
+    while(true){
 
-            let liveViews = stringToViewsInt(livesEls[j].textContent)
-            let liveDate = livesEls[j].parentElement.textContent.match(/· (.*)/)[1]
-            let liveDuration = stringToDurationSec(livesEls[j].offsetParent.querySelector("._51m- ._5ig6").textContent)
+        let liveThumbs =  document.querySelectorAll("span.fcg")
+        let aggregateViews = 0, aggregateDuration = 0;
 
-            aggregateViews += liveViews
-            aggregateDuration += liveDuration
+        for(let i = 0; i< liveThumbs.length; i++){ 
+            
+            let year = liveThumbs[i].parentElement.textContent.match(/\d{4}/);
+            if(!year || parseInt(year[0]) >= FLOORER ){
 
-            livesDataArr.push({"date": liveDate, "views": liveViews, "duration": liveDuration})
+                let liveViews = stringToViewsInt(liveThumbs[i].textContent)
+                let liveDate = await stringToUnixTime(liveThumbs[i].parentElement.textContent.match(/· (.*)/)[1]) //defined in puppeteer exposeFunction method
+                let stringLiveDuration = liveThumbs[i].offsetParent.querySelector("._51m- ._5ig6")
+                let liveDuration = stringToDurationSec(stringLiveDuration != null ? stringLiveDuration.textContent : null)
+
+                aggregateViews += liveViews
+                aggregateDuration += liveDuration
+                
+                result.push({"timestamp": liveDate, "views": liveViews, "duration": liveDuration})
+            }
+            //done, reached floor year limit; 
+            else return {
+                "full": result,
+                "brief": {
+                    "viewsPerLive" :parseInt(aggregateViews/liveThumbs.length) ,
+                    "aggregateViews": aggregateViews,
+                    "aggregateDuration": aggregateDuration 
+                }
+            } 
         }
-
+            
+ 
+        await sleep(parseInt(Math.random() * 100) * 100) 
+        console.log("Scrolling...");
+        //didn't reach floor, but consumed all videos uploaded. needs to be refactored to ensure DRY
+        if(document.querySelector(".uiMorePager") == null)  
         return {
-            "full": livesDataArr,
+            "full": result,
             "brief": {
-                "viewsPerLive" :aggregateViews/livesEls.length ,
+                "viewsPerLive" :parseInt(aggregateViews/liveThumbs.length) ,
                 "aggregateViews": aggregateViews,
                 "aggregateDuration": aggregateDuration 
             }
-        }
+        };
+        window.scroll(0, document.body.scrollHeight)
+       
+
     }
-    catch(err){
-        return console.trace(err);
-    }
+
+
 }
+getStats().then((res)=>{console.log(res)})
 module.exports.getStats = getStats;
 

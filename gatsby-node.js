@@ -1,4 +1,4 @@
-//const scraperVS = require("./scrapers/mainVS");
+const scraperVS = require("./scrapers/mainVS");
 
 exports.createPages = async ({ actions: { createPage }, graphql }) => {
     const results = await graphql(`
@@ -9,9 +9,14 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
                     slug
                     facebookSlug
                     id
+                    parent {
+                      ... on File {
+                        absolutePath
+                      }
+                    }
                   }
                 }
-            }
+              }
         }
     `)
     const politicians = results.data.allApiJson.edges
