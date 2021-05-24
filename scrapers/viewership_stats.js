@@ -26,8 +26,8 @@ async function getStats(){
     }
 
     
-    const FLOORER = 2020
-    if( new Date().getFullYear() == FLOORER) throw new Error("I'm lazy to make it work on current year. floor year should be set to one year ago minimum");
+    const FLOORYEAR = 2020
+    if( new Date().getFullYear() == FLOORYEAR) throw new Error("I'm lazy to make it work on current year. floor year should be set to one year ago minimum");
 
     const result = [];
     while(true){
@@ -38,7 +38,7 @@ async function getStats(){
         for(let i = 0; i< liveThumbs.length; i++){ 
             
             let year = liveThumbs[i].parentElement.textContent.match(/\d{4}/);
-            if(!year || parseInt(year[0]) >= FLOORER ){
+            if(!year || parseInt(year[0]) >= FLOORYEAR ){
 
                 let liveViews = stringToViewsInt(liveThumbs[i].textContent)
                 let liveDate = await stringToUnixTime(liveThumbs[i].parentElement.textContent.match(/· (.*)/)[1]) //defined in puppeteer exposeFunction method
