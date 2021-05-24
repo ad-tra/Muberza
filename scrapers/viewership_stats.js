@@ -81,6 +81,6 @@ async function getStats(){
 
 
 }
-getStats().then((res)=>{console.log(res)})
+
 module.exports.getStats = getStats;
 
