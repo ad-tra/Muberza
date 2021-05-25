@@ -15,7 +15,7 @@ export const query = graphql`
             viewsPerLive
             }
             full {
-            date
+            timestamp
             duration
             views
             }
@@ -71,7 +71,7 @@ const stats = [
 ];
 
 export default function PoliticianPage({data}) {
-    console.log(data);
+    console.log(new dayjs(2020).unix());
     return (
         <Layout className = {`politician_page nav--${data.apiJson.party} `}>
             
@@ -83,22 +83,19 @@ export default function PoliticianPage({data}) {
             
                 {/* ~~Chart.js~~ :( Chart goes here*/}        
                 <ResponsiveContainer className="chart_container" width={700} height={700}>
-                    <AreaChart
-                    width={500}
-                    height={400}
-                    data={stats}
-                    margin={{
-                        top: 10,
-                        right: 30,
-                        left: 0,
-                        bottom: 0,
-                    }}
-                    >
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="time" domain={["auto","auto"]} scale="time" type="number" tickFormatter = {unixTime=> dayjs(unixTime).format("MMM D")}/>
-                    <YAxis />
-                    <Tooltip />
-                    <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
+                    <AreaChart width={500} height={400} data={data.apiJson.viewershipStats.full} margin={{top: 10, right: 30, left: 0, bottom: 0,}}>
+      
+                      <XAxis dataKey="timestamp" domain={[new dayjs().unix(),new dayjs(2021).unix()]} tick={false} scale="time" type="number"/>
+                      <YAxis />
+                      <Tooltip />
+                      <defs>
+                        <linearGradient id={`degrade--${data.apiJson.party}`} x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%"  stopOpacity={0.8}/>
+                          <stop offset="120%"  stopOpacity={0}/>
+                        </linearGradient>
+                      </defs>
+  
+                      <Area type="monotone" dataKey="views" stroke="#8884d8" fillOpacity={1} fill={`url(#degrade--${data.apiJson.party})`}  />
                     </AreaChart>
                 </ResponsiveContainer>
 

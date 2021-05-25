@@ -51,6 +51,10 @@ async function main(query){
 
 }
 
-
+function setJSON(filepath, payload){
+    let data = JSON.parse(fs.readFileSync(filepath));
+    data.viewershipStats = payload;
+    fs.writeFileSync(filepath, JSON.stringify(data));
+}
 
 module.exports.main  = main;
