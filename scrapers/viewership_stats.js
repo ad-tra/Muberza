@@ -30,12 +30,15 @@ async function getStats(){
     if( new Date().getFullYear() == FLOORYEAR) throw new Error("I'm lazy to make it work on current year. floor year should be set to one year ago minimum");
 
     const result = [];
+    let liveThumbs, lastIndexLiveThumb
+    let aggregateViews = 0, aggregateDuration = 0;
+
     while(true){
 
-        let liveThumbs =  document.querySelectorAll("span.fcg")
-        let aggregateViews = 0, aggregateDuration = 0;
+        lastIndexLiveThumb = typeof(liveThumbs) == "undefined" ? 0 : liveThumbs.length
+        liveThumbs =  document.querySelectorAll("span.fcg")
 
-        for(let i = 0; i< liveThumbs.length; i++){ 
+        for(let i = lastIndexLiveThumb; i< liveThumbs.length; i++){ 
             
             let year = liveThumbs[i].parentElement.textContent.match(/\d{4}/);
             if(!year || parseInt(year[0]) >= FLOORYEAR ){
