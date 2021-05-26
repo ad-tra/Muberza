@@ -34,7 +34,7 @@
   - [x] explore and use `createPages` api function to dynamically create pages.
   - [x] implement adobe xd design with headers and ta7lil ta9ni
   - [ ] Recharts. bye bye charts.js :(
-    - [ ] Collect data in form [...{"date" "MARS 8", "vues": 1677781}]
+    - [x] Collect data in form [...{"date" "MARS 8", "vues": 1677781}]
     - [ ] generate a line graph with consistent-scale x-axis
     - [x] Design the UI for graphs.
     - [x] Brainstorm user control features: (ex) Compare a politician to another politician/youtuber/instagrameuse...  
