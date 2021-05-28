@@ -10,7 +10,7 @@ export default function Index () {
     const polisArr = useStaticQuery(
         graphql`
         query MyPolis {
-            allApiJson(sort: {fields: party}) {
+            allApiJson(sort: {fields: viewershipStats___brief___aggregateViews, order: DESC}) {
               edges {
                 node {
                   briefDiscrp
@@ -19,7 +19,7 @@ export default function Index () {
                   slug
                   thumbImage {
                     childrenImageSharp {
-                      gatsbyImageData(placeholder: NONE)
+                      gatsbyImageData(placeholder: BLURRED)
                     }
                   }
                   viewershipStats {

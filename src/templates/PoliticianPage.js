@@ -25,53 +25,10 @@ export const query = graphql`
     }
 `
 // cSpell:disable
-const stats = [
-  {
-    time: 1621442646144,
-    uv: 4000,
-    pv: 2400,
-    amt: 2403,
-  },
-  {
-    time: 1621443646144,
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    time: 1621444646144,
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    time: 1621445646144,
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    time: 1621446646144,
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    time: 1621447646144,
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    time: 162448646144,
-    uv: 3489,
-    pv: 4299,
-    amt: 2099,
-  },
-];
+
 
 export default function PoliticianPage({data}) {
-    console.log(new dayjs(2020).unix());
+    
     return (
         <Layout className = {`politician_page nav--${data.apiJson.party} `}>
             
@@ -85,17 +42,18 @@ export default function PoliticianPage({data}) {
                 <ResponsiveContainer className="chart_container" width={700} height={700}>
                     <AreaChart width={500} height={400} data={data.apiJson.viewershipStats.full} margin={{top: 10, right: 30, left: 0, bottom: 0,}}>
       
-                      <XAxis dataKey="timestamp" domain={[new dayjs().unix(),new dayjs(2021).unix()]} tick={false} scale="time" type="number"/>
-                      <YAxis />
+                      <XAxis dataKey="timestamp" domain={['dataMin', 'dataMax']}  type="number" tickCount={3}  interval="preserveStartEnd" tickFormatter={tickText=> new dayjs(tickText * 1000).format("MMM,YYYY")}/>
+                      <YAxis dataKey="views" interval= "preserveStartEnd"/>
+                      <CartesianGrid strokeDasharray="3 3 " horizontal={true} vertical={true} />
                       <Tooltip />
                       <defs>
-                        <linearGradient id={`degrade--${data.apiJson.party}`} x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="0%"  stopOpacity={0.8}/>
-                          <stop offset="120%"  stopOpacity={0}/>
+                        <linearGradient id={`degrade`} x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="20%"  stopOpacity={1}/>
+                          <stop offset="100%"  stopOpacity={1}/>
                         </linearGradient>
                       </defs>
   
-                      <Area type="monotone" dataKey="views" stroke="#8884d8" fillOpacity={1} fill={`url(#degrade--${data.apiJson.party})`}  />
+                      <Area id= "stroke_main"  type="cardinal" dataKey="views" fillOpacity={1} fill={`url(#degrade)`}  />
                     </AreaChart>
                 </ResponsiveContainer>
 
