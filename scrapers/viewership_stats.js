@@ -17,10 +17,19 @@ async function getStats(){
             return accumulator + (currentValue * 60 ** currentIndex)
         },0)
     }
+    
     function sleep (time) {
         return new Promise((resolve) => setTimeout(resolve, time));
     }
 
+    function addViewsSinceStart(arr){
+        arr[arr.length-1]["viewsSinceStart"] = arr[arr.length-1].views
+        
+        for(let i = arr.length -2; i>-1; i--){
+            arr[i]["viewsSinceStart"] = arr[i].views + arr[i+1].viewsSinceStart
+        }
+        return arr;
+    } 
     
     const FLOORYEAR = 2019
     if( new Date().getFullYear() == FLOORYEAR) throw new Error("I'm lazy to make it work on current year. floor year should be set to one year ago minimum");
@@ -36,24 +45,24 @@ async function getStats(){
         for(let i = lastIndexLiveThumb; i< liveThumbs.length; i++){ 
             
             let year = liveThumbs[i].parentElement.textContent.match(/\d{4}/);
-            let liveViews, liveDate, stringLiveDuration, liveDuration;
+            let views, liveDate, stringLiveDuration, liveDuration;
             
             //liveThumb included in the resultObj
             if(!year || parseInt(year[0]) >= FLOORYEAR ){
 
-                liveViews = stringToViewsInt(liveThumbs[i].textContent)
+                views = stringToViewsInt(liveThumbs[i].textContent)
                 liveDate = await stringToUnixTime(liveThumbs[i].parentElement.textContent.match(/· (.*)/)[1]) //defined in puppeteer exposeFunction method
                 stringLiveDuration = liveThumbs[i].offsetParent.querySelector("._51m- ._5ig6")
                 liveDuration = stringToDurationSec(stringLiveDuration != null ? stringLiveDuration.textContent : null)
 
-                aggregateViews += liveViews
+                aggregateViews += views
                 aggregateDuration += liveDuration
                 
-                result.push({"timestamp": liveDate, "views": liveViews, "duration": liveDuration})
+                result.push({"timestamp": liveDate, "views": views, "duration": liveDuration})
             }
             //done, reached floor year limit; 
             else return {
-                "full": result,
+                "full": addViewsSinceStart(result),
                 "brief": {
                     "viewsPerLive" :parseInt(aggregateViews/liveThumbs.length) ,
                     "aggregateViews": aggregateViews,
@@ -64,7 +73,7 @@ async function getStats(){
         
         //didn't reach floor, but consumed all videos uploaded. needs to be refactored to ensure DRY
         if(document.querySelector(".uiMorePager") == null)  return {
-            "full": result,
+            "full": addViewsSinceStart(result),
             "brief": {
                 "viewsPerLive" :parseInt(aggregateViews/liveThumbs.length) ,
                 "aggregateViews": aggregateViews,
