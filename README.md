@@ -13,7 +13,7 @@
 
 
 ## 🔨 Task List 
-- [ ] Politician Pages
+- [ ] ➖➖ Politician Pages
   - [x] explore and use `createPages` api function to dynamically create pages.
   - [x] implement adobe xd design with headers and ta7lil ta9ni
   - [x] Recharts. ~~bye bye charts.js :(~~
@@ -22,18 +22,18 @@
     - [x] Collect data in form [...{"date" "MARS 8", "vues": 1677781}]
     - [x] generate a line graph with consistent-scale x-axis
     - [x] Design the UI for graphs.
-- [ ] internationalize with i18n
+- [ ] ➖➖ Internationalize with i18n
   - [ ] setup i18n structure with custom urls like /en-us/ and /ar-tn/
   - [ ] tn arabic
   - [ ] english
-- [x] Nav Bar
+- [x] ➖➖ Nav Bar
   - [x] Start and Finish styling 
   - [x] Add a humberger menu
-- [ ] Clashing Cut 
+- [ ] ➖➖ Clashing Cut 
   - [x] Finish styling by using `background-clip`
   - [x] Make it responsive
   - [ ] consider changing copy of 'muberza' with '50 malyoun' or other catchy header
-- [ ] Politician Card
+- [ ] ➖➖ Politician Card
   - [x] Finish styling by adding gradient design els.
   - [x] Add politician images into the graphQL layer.
   - [ ] Make it responsive.
