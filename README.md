@@ -13,6 +13,19 @@
 
 
 ## 🔨 Task List 
+- [ ] Politician Pages
+  - [x] explore and use `createPages` api function to dynamically create pages.
+  - [x] implement adobe xd design with headers and ta7lil ta9ni
+  - [x] Recharts. ~~bye bye charts.js :(~~
+    - [x] Brainstorm user control features: (ex) Compare a politician to another politician/youtuber/instagrameuse...  
+    - [ ] Implement user control: "قـــارن"
+    - [x] Collect data in form [...{"date" "MARS 8", "vues": 1677781}]
+    - [x] generate a line graph with consistent-scale x-axis
+    - [x] Design the UI for graphs.
+- [ ] internationalize with i18n
+  - [ ] setup i18n structure with custom urls like /en-us/ and /ar-tn/
+  - [ ] tn arabic
+  - [ ] english
 - [x] Nav Bar
   - [x] Start and Finish styling 
   - [x] Add a humberger menu
@@ -25,19 +38,9 @@
   - [x] Add politician images into the graphQL layer.
   - [ ] Make it responsive.
   - [x] use SASS mixin to ensure DRY code in .karama .dostouri  
-- [ ] internationalize with i18n
-  - [ ] tn arabic
-  - [ ] english
-  - [ ] vanilla arabic
-  - [ ] french. maybe??? 
-- [ ] Politician Pages
-  - [x] explore and use `createPages` api function to dynamically create pages.
-  - [x] implement adobe xd design with headers and ta7lil ta9ni
-  - [ ] Recharts. bye bye charts.js :(
-    - [x] Collect data in form [...{"date" "MARS 8", "vues": 1677781}]
-    - [ ] generate a line graph with consistent-scale x-axis
-    - [x] Design the UI for graphs.
-    - [x] Brainstorm user control features: (ex) Compare a politician to another politician/youtuber/instagrameuse...  
+
+
+  
 
 ## Hero Preview 
 ![enter image description here](https://i.imgur.com/RN8k8Vp.png)
