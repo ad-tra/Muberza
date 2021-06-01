@@ -10,7 +10,7 @@ export default function Index () {
     const polisArr = useStaticQuery(
         graphql`
         query MyPolis {
-            allApiJson(sort: {fields: viewershipStats___brief___aggregateViews, order: DESC}) {
+          allPoliticiansJson(sort: {fields: viewershipStats___brief___aggregateViews, order: DESC}) {
               edges {
                 node {
                   briefDiscrp
@@ -45,7 +45,7 @@ export default function Index () {
             
             </ClashingColors>
             <section id= "hero_content">
-                {polisArr.allApiJson.edges.map((edge) => {return <PoliticianCard politician={edge.node} />})}
+                {polisArr.allPoliticiansJson.edges.map((edge) => {return <PoliticianCard politician={edge.node} />})}
             </section>
 
         </Layout>

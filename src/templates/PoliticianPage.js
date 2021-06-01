@@ -7,7 +7,7 @@ import Layout from '../components/Layout'
 
 export const query = graphql`
     query PoliticianPage($id: String!) {
-        apiJson(id: {eq: $id}) {
+        politiciansJson(id: {eq: $id}) {
         party
         name
         viewershipStats {
