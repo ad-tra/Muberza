@@ -15,6 +15,11 @@ export const query = graphql`
                 aggregateViews
                 viewsPerLive
             }
+            condensed{
+                startTimestamp
+                endTimestamp
+                views
+            }
             full {
                 timestamp
                 duration
@@ -41,13 +46,33 @@ export default function PoliticianPage({data}) {
                 </div> 
             
                 {/* ~~Chart.js~~ :( Chart goes here*/}        
+                
+                <ResponsiveContainer className="chart_container" width={800} height={700}>
+                    <AreaChart width={500} height={400} data={data.politiciansJson.viewershipStats.condensed} margin={{top: 10, right: 50, left: 50, bottom: 0,}}>
+      
+                      <XAxis dataKey="startTimestamp" domain={['dataMin', 'dataMax']} type="number" tickCount={3}  interval="preserveStartEnd" tickFormatter={tickText=> new dayjs(tickText * 1000).format("MMM,YYYY")}/>
+                      <YAxis dataKey="views" />
+                      <CartesianGrid id="grid" strokeDasharray="3 3 " horizontal={true} vertical={true} />
+                      <Tooltip  labelFormatter={(label)=>new dayjs(label * 1000).format("MMMM YYYY")}/>
+                      <defs>
+                        <linearGradient id={`degrade`}  x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="20%"  stopOpacity={1}/>
+                          <stop offset="100%"  stopOpacity={1}/>
+                        </linearGradient>
+                      </defs>
+  
+                      <Area id= "stroke_main"  type="monotone" dataKey="views"  fillOpacity={1} fill={`url(#degrade)`}  />
+                    </AreaChart>
+                </ResponsiveContainer>                
+                
+                
                 <ResponsiveContainer className="chart_container" width={800} height={700}>
                     <AreaChart width={500} height={400} data={data.politiciansJson.viewershipStats.full} margin={{top: 10, right: 50, left: 50, bottom: 0,}}>
       
                       <XAxis dataKey="timestamp" domain={['dataMin', 'dataMax']} type="number" tickCount={3}  interval="preserveStartEnd" tickFormatter={tickText=> new dayjs(tickText * 1000).format("MMM,YYYY")}/>
                       <YAxis dataKey="viewsSinceStart" />
                       <CartesianGrid id="grid" strokeDasharray="3 3 " horizontal={true} vertical={true} />
-                      <Tooltip />
+                      <Tooltip labelFormatter={(label)=>new dayjs(label * 1000).format("MMMM YYYY")} />
                       <defs>
                         <linearGradient id={`degrade`}  x1="0" y1="0" x2="0" y2="1">
                           <stop offset="20%"  stopOpacity={1}/>
