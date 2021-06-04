@@ -32,17 +32,17 @@ export const query = graphql`
 export default function PoliticianPage({data}) {
     
     return (
-        <Layout className = {`politician_page nav--${data.apiJson.party} `}>
+        <Layout className = {`politician_page nav--${data.politiciansJson.party} `}>
             
-            <div className = {`pp--${data.apiJson.party}`}>
+            <div className = {`pp--${data.politiciansJson.party}`}>
                 <div className="headers_container">
-                    <h1 dir ="rtl">{data.apiJson.name}<span className = "emphasis">50 </span>مليون مشاهدة في 2021  </h1>
+                    <h1 dir ="rtl">{data.politiciansJson.name}<span className = "emphasis">50 </span>مليون مشاهدة في 2021  </h1>
                     <p dir = "rtl">لكن لا بــــد أن أوضح لك أن كل هذه الأفكار لمغلوطــة حول استنكار  النشوة وتمجيد الألم نشأت بالفعل،  وسأعرض لك التفاصيل لتكتشف حقيقة  وأساس  تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب الشعور بالسعادة، ولكن بفضل</p>
                 </div> 
             
                 {/* ~~Chart.js~~ :( Chart goes here*/}        
                 <ResponsiveContainer className="chart_container" width={800} height={700}>
-                    <AreaChart width={500} height={400} data={data.apiJson.viewershipStats.full} margin={{top: 10, right: 50, left: 50, bottom: 0,}}>
+                    <AreaChart width={500} height={400} data={data.politiciansJson.viewershipStats.full} margin={{top: 10, right: 50, left: 50, bottom: 0,}}>
       
                       <XAxis dataKey="timestamp" domain={['dataMin', 'dataMax']} type="number" tickCount={3}  interval="preserveStartEnd" tickFormatter={tickText=> new dayjs(tickText * 1000).format("MMM,YYYY")}/>
                       <YAxis dataKey="viewsSinceStart" />

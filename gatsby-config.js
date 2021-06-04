@@ -28,6 +28,13 @@ module.exports = {
         }
       }
     },
+    {
+      resolve: 'gatsby-plugin-i18n',
+      options: {        
+        langKeyDefault: 'ar-TN',
+        useLangKeyLayout: false
+      }
+    },
     `gatsby-plugin-sass`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
