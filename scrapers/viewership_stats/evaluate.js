@@ -1,11 +1,11 @@
 async function getStats(){ 
     
-    function stringToViewsInt(viewsStr){
+    function stringToViewsInt (viewsStr){
         let result = viewsStr
         .replace(" views", "")
-        .replace("K", "000")
+        .replace(/.*K\b/, parseFloat(viewsStr.match(/[\d.]*/)[0])  * 1000 )
         .replace(/.*M\b/, parseFloat(viewsStr.match(/[\d.]*/)[0])  * 1000000)
-    
+
         return parseInt(result);
     }
     function stringToDurationSec(durationStr){
