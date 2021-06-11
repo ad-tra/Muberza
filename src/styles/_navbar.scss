@@ -94,7 +94,7 @@
     }
 
 }
-.nav--karama{
+.layout--karama{
     @include addPartyColors($green--light, $green--dark, 1%);
     .navbar_controls{
         .burger svg{
@@ -106,9 +106,9 @@
         }
     } 
 }
-.nav--dostouri{
+.layout--dostouri{
     @include addPartyColors($red--dark, $red--light)
 }
-.nav--clashing_colors{
+.layout--clashing_colors{
     @include addPartyColors($green--light, $green--dark)
 }

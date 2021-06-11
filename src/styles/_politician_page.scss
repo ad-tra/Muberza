@@ -15,9 +15,7 @@
             margin-top:0.5em;
         }
     }
-    .chart_container{
-        margin: 5em auto;
-    }
+
     .ta7lil_container{
         margin: 0 auto;
         padding-top:10em;
@@ -45,39 +43,20 @@
             background: linear-gradient(-90deg, rgba($complementary, 0.3), transparent);
         }
     }
-    .chart_container { 
-
-        #stroke_main{
-            stroke:$secondary;
-        }
-        #degrade {
-            stop:nth-of-type(1){
-                stop-color: $secondary;
-            }
-            stop:nth-of-type(2){
-                stop-color: $primary;
-            }
-        }
-        #grid{
-            stroke: rgba($secondary, 0.5);   
-        }
-        .recharts-cartesian-axis-ticks text{
-         fill: rgba($secondary, 0.5);   
-        }
-    }
+    
     .ta7lil_container{
         color: $secondary
     }
 
 }
 
-.pp--dostouri{
+.layout--dostouri{
     @include addPartyColors($red--dark, $red--light, $green--light);
 
 
 }
 
-.pp--karama{
+.layout--karama{
     @include addPartyColors($green--light, $green--dark, $red--light);
 
 }

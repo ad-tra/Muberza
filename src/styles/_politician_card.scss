@@ -1,5 +1,5 @@
 /* since first element(abir) is off diferrent color, increase its margin, and give it space*/
-section .politician_card_container:first-of-type .politician_card {margin: 13em auto;}
+section .politician_card_container:first-of-type .politician_card {margin: 28vh auto;}
 
 .politician_card_container {overflow: auto;}
 
@@ -35,6 +35,7 @@ section .politician_card_container:first-of-type .politician_card {margin: 13em 
             margin-top: 5em;
             li {
                 margin-top: 0.6em;
+                
             }
             /*value bolding after the key*/
             li span:nth-child(2) {

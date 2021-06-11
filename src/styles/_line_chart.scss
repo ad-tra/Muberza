@@ -1,0 +1,37 @@
+.chart_wrapper{
+    margin: 5em auto;
+}
+
+
+
+
+@mixin addPartyColors($primary, $secondary, $complementary){ 
+    .chart_wrapper { 
+
+        #stroke_main{
+            stroke:$secondary;
+        }
+        #degrade {
+            stop:nth-of-type(1){
+                stop-color: $secondary;
+            }
+            stop:nth-of-type(2){
+                stop-color: $primary;
+            }
+        }
+        #grid{
+            stroke: rgba($secondary, 0.5);   
+        }
+        .recharts-cartesian-axis-ticks text{
+        fill: rgba($secondary, 0.5);   
+        }
+    }
+}
+
+.layout--dostouri{
+    @include addPartyColors($red--dark, $red--light, $green--light);
+}
+
+.layout--karama{
+    @include addPartyColors($green--light, $green--dark, $red--light);
+}

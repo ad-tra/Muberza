@@ -1,12 +1,13 @@
 import React from 'react';
-
 import {Link} from 'gatsby';
 import { GatsbyImage} from 'gatsby-plugin-image';
 
-
+import {numFormatter} from './Utils'
 
 export default function PoliticianCard({politician}){
-    const briefviewershipStats = politician.viewershipStats == null ? [] : Object.values(politician.viewershipStats.brief)
+    const briefViewershipStats = 
+    [{key:"مجموع المشاهدات ", "value": politician.viewershipStats.brief.aggregateViews},
+    {key:"معدل مشاهدة اللايف", "value": politician.viewershipStats.brief.viewsPerLive}]
 
     return(
         <section className= {`politician_card_container pc--${politician.party}`} >
@@ -22,13 +23,13 @@ export default function PoliticianCard({politician}){
                     <h3>{politician.name}</h3>
                     <p>{politician.briefDiscrp}</p>
                     
-                    <ul>
-                         
-                        {briefviewershipStats.map((statObj) =>{
+                    <ul dir = "rtl">
+                        {briefViewershipStats.map((brief, i) =>{
+                            {console.log(brief)}
                             return (
                                 <li>
-                                    <span>ar9am wa 7ikam: </span>
-                                    <span>{statObj}</span>
+                                    <span>{brief.key}:</span>
+                                    <span>{numFormatter(brief.value)}</span>
                                 </li>
                             )
                         })}
