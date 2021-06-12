@@ -23,12 +23,14 @@ export default function PoliticianPage({data}) {
                 
                 <div className= "chart_wrappers_container">
                     <LineChartWrapper 
+                        title="عدد مشاهدات اللايفز في كل شهر"
                         dataSourceMacro = {politician.viewershipStats.condensed}
                         XAxisDataKey = "startTimestamp"
                         YAxisDataKey = "views"
                     />
                     
                     <LineChartWrapper 
+                        title = "مجموع مشاهدات كل اللايفز"
                         dataSourceMacro = {politician.viewershipStats.full}
                         XAxisDataKey = "timestamp"
                         YAxisDataKey = "viewsSinceStart"

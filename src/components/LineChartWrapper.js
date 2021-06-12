@@ -2,16 +2,19 @@ import React from 'react'
 import dayjs from 'dayjs'
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
-export default function LineChartWrapper({dataSourceMacro, XAxisDataKey, YAxisDataKey }) {
+import { numFormatter } from './Utils'; 
+
+export default function LineChartWrapper({title, dataSourceMacro, XAxisDataKey, YAxisDataKey }) {
     const formatXAxis = timestamp=> new dayjs(timestamp * 1000).format("MMM,YYYY")
     
     const formatTooltipLabel = label => new dayjs(label * 1000).format("MMMM YYYY")
     
-    const formatToolTipKey = key => key.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-   console.log(dataSourceMacro) 
+    const formatToolTipKey = key => numFormatter(key) 
+
+    
     return (
-        <>
-            <ResponsiveContainer className={`chart_wrapper`} width={800} height={700}>
+        <div className= "chart_wrapper">
+            <ResponsiveContainer width={800} height={700}>
                 <AreaChart 
                     width={500} 
                     height={400} 
@@ -57,7 +60,9 @@ export default function LineChartWrapper({dataSourceMacro, XAxisDataKey, YAxisDa
                         fill={`url(#degrade)`}  
                     />
                 </AreaChart>
-            </ResponsiveContainer>  
-        </>
+                
+            </ResponsiveContainer>
+            <h2 className="chart_title">{title}</h2>
+        </div>
     )
 }

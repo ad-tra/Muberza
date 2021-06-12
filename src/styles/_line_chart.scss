@@ -1,5 +1,15 @@
 .chart_wrapper{
-    margin: 5em auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .recharts-responsive-container{
+        margin-top: 8em;
+    }
+    .chart_title{
+        font-family: "meral";
+   
+    }
+
 }
 
 
@@ -7,6 +17,10 @@
 
 @mixin addPartyColors($primary, $secondary, $complementary){ 
     .chart_wrapper { 
+        .chart_title{
+            color:$secondary;
+            opacity: 0.9
+        }
 
         #stroke_main{
             stroke:$secondary;

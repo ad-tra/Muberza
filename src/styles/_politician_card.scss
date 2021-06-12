@@ -7,14 +7,18 @@ section .politician_card_container:first-of-type .politician_card {margin: 28vh 
     position: relative;
     display: flex;
     flex-direction: row-reverse;
-    margin: 8em auto;
+    margin: 12em auto;
     max-width: 1500px;
     @media (max-width: $breakpointMobile) {
         flex-direction: column;
         align-items: flex-end;
     }
     .politician_image {
-        width: 25em;
+        width: 24em;
+        .gatsby-image-wrapper img{
+            width: auto;
+            height: 23em;
+        }
         picture {
             opacity: 0.8;
         }
@@ -96,8 +100,8 @@ section .politician_card_container:first-of-type .politician_card {margin: 28vh 
             color: $primary;
             
             @if($primary == $green--dark){
-                /*Karama gets a darker filter to offset color differences */
-                background: linear-gradient(0deg,rgba(lighten($secondary,5%), 0.5) 20% ,transparent );
+                /*Karama gets a darker filter in see more button to offset color differences */
+                background: linear-gradient(0deg,rgba(lighten($background,10%), 0.5) 20% ,transparent );
             } @else{
                 background: linear-gradient(0deg,rgba($secondary, 0.1) 20%,transparent);
             }
