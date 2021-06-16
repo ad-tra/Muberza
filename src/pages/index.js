@@ -23,6 +23,9 @@ export default function Index () {
                     }
                   }
                   viewershipStats {
+                    full{
+                      views
+                    }
                     brief {
                       aggregateViews
                       viewsPerLive

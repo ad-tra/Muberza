@@ -20,8 +20,9 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
         }
     `)
     const politicians = results.data.allPoliticiansJson.edges
-    
     //await scraperVS.main(politicians);
+
+
 
     politicians.forEach((edge)=>{
         const politician = edge.node;

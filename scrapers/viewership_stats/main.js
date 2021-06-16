@@ -103,18 +103,18 @@ async function main(query){
 
 
 
-for(let i = 0; i< mockData.length; i++){ 
-    const {parent:{absolutePath}} = mockData[i].node
+// for(let i = 0; i< mockData.length; i++){ 
+//     const {parent:{absolutePath}} = mockData[i].node
     
-    const fullArr = JSON.parse(fs.readFileSync(absolutePath)).viewershipStats.full;
-    const condensedArr =  arrFullToCondensed({'magnitude': 1, 'unit': "months"}, fullArr )
+//     const fullArr = JSON.parse(fs.readFileSync(absolutePath)).viewershipStats.full;
+//     const condensedArr =  arrFullToCondensed({'magnitude': 1, 'unit': "months"}, fullArr )
     
-    let data = JSON.parse(fs.readFileSync(absolutePath));
-    data.viewershipStats.condensed = condensedArr;
-    fs.writeFileSync(absolutePath, JSON.stringify(data));
+//     let data = JSON.parse(fs.readFileSync(absolutePath));
+//     data.viewershipStats.condensed = condensedArr;
+//     fs.writeFileSync(absolutePath, JSON.stringify(data));
 
 
-}
+// }
 
 
 module.exports.main  = main;

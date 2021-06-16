@@ -6,8 +6,9 @@ import {numFormatter} from './Utils'
 
 export default function PoliticianCard({politician}){
     const briefViewershipStats = 
-    [{key:"مجموع المشاهدات ", "value": politician.viewershipStats.brief.aggregateViews},
-    {key:"معدل مشاهدة اللايف", "value": politician.viewershipStats.brief.viewsPerLive}]
+    [{key:"مجموع المشاهدات ", value: politician.viewershipStats.brief.aggregateViews},
+    {key:"معدل مشاهدة اللايف", value: politician.viewershipStats.brief.viewsPerLive},
+    {key:"عدد اللايفوات", value: politician.viewershipStats.full.length}]
 
     return(
         <section className= {`politician_card_container pc--${politician.party}`} >
