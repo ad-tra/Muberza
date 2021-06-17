@@ -3,14 +3,17 @@ import dayjs from 'dayjs'
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 import { numFormatter } from './Utils'; 
+import SelectDropdownWrapper from './SelectDropdownWrapper'
 
+
+
+const formatXAxis = timestamp=> new dayjs(timestamp * 1000).format("MMM,YYYY")
+
+const formatTooltipLabel = label => new dayjs(label * 1000).format("MMMM YYYY")
+const formatToolTipKey = key => numFormatter(key, 1)
+
+ 
 export default function LineChartWrapper({title, dataSourceMacro, XAxisDataKey, YAxisDataKey }) {
-    const formatXAxis = timestamp=> new dayjs(timestamp * 1000).format("MMM,YYYY")
-    
-    const formatTooltipLabel = label => new dayjs(label * 1000).format("MMMM YYYY")
-    
-    const formatToolTipKey = key => numFormatter(key) 
-
     
     return (
         <div className= "chart_wrapper">
@@ -40,6 +43,7 @@ export default function LineChartWrapper({title, dataSourceMacro, XAxisDataKey, 
                     />
                     
                     <Tooltip  
+                        position={{y:200}}
                         labelFormatter={formatTooltipLabel} 
                         formatter={formatToolTipKey}
                     />
@@ -62,7 +66,9 @@ export default function LineChartWrapper({title, dataSourceMacro, XAxisDataKey, 
                 </AreaChart>
                 
             </ResponsiveContainer>
+            <SelectDropdownWrapper />   
             <h2 className="chart_title">{title}</h2>
+        
         </div>
     )
 }

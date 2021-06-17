@@ -20,7 +20,7 @@ section .politician_card_container:first-of-type .politician_card {margin: 28vh 
             height: 23em;
         }
         picture {
-            opacity: 0.8;
+            opacity: 0.7;
         }
     }
     .politician_info {
@@ -37,14 +37,13 @@ section .politician_card_container:first-of-type .politician_card {margin: 28vh 
         ul {
             font-size: 1.2em;
             margin-top: 5em;
-            li {
-                margin-top: 0.6em;
-                
-            }
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            row-gap: 0.6em;
+
             /*value bolding after the key*/
-            li span:nth-child(2) {
+            .bold {
                 font-weight: 600;
-                padding-right: 1.4em;
             }
         }
     }
@@ -61,7 +60,7 @@ section .politician_card_container:first-of-type .politician_card {margin: 28vh 
         &:before {
             content: "";
             display: block;
-            height: 7px;
+            height: 4px;
             width: 100%;
             top: 1em;
             left: 0;
@@ -73,12 +72,14 @@ section .politician_card_container:first-of-type .politician_card {margin: 28vh 
     .degrade{
         height: 5em;
         width: 100%;
+        opacity: 0.26;
     }
     .degrade--smoll{
         width: 10em;
         position: absolute;
         left: 0;
         top: 2em;
+        opacity: 0.7;
     }
 }
 
@@ -90,11 +91,10 @@ section .politician_card_container:first-of-type .politician_card {margin: 28vh 
     .politician_card {
         .degrade {
             background: linear-gradient(-90deg, $primary 50%, transparent);
-            opacity: 0.26;
+
         }
         .degrade--smoll {
             background: linear-gradient(90deg, $primary 0%, transparent);
-            opacity: 0.36;
         }
         .button_butt {
             color: $primary;
@@ -103,7 +103,8 @@ section .politician_card_container:first-of-type .politician_card {margin: 28vh 
                 /*Karama gets a darker filter in see more button to offset color differences */
                 background: linear-gradient(0deg,rgba(lighten($background,10%), 0.5) 20% ,transparent );
             } @else{
-                background: linear-gradient(0deg,rgba($secondary, 0.1) 20%,transparent);
+                /*dostouri*/
+                background: linear-gradient(0deg,darken(saturate($background,40%), 5%) 20%, transparent);
             }
         }
         .button_butt:before {

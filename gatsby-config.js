@@ -9,14 +9,14 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `pages`,
+        name: `images`,
         path: `./data`,
       }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `pages`,
+        name: `api`,
         path: `./static/api`,
       }
     },

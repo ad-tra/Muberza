@@ -6,9 +6,9 @@ import {numFormatter} from './Utils'
 
 export default function PoliticianCard({politician}){
     const briefViewershipStats = 
-    [{key:"مجموع المشاهدات ", value: politician.viewershipStats.brief.aggregateViews},
-    {key:"معدل مشاهدة اللايف", value: politician.viewershipStats.brief.viewsPerLive},
-    {key:"عدد اللايفوات", value: politician.viewershipStats.full.length}]
+    [{key:"مجموع المشــاهدات ", value: politician.viewershipStats.brief.aggregateViews},
+    {key:"معدل مشاهدة اللايـف", value: politician.viewershipStats.brief.viewsPerLive},
+    {key:"عـدد اللايــفوات", value: politician.viewershipStats.full.length}]
 
     return(
         <section className= {`politician_card_container pc--${politician.party}`} >
@@ -25,15 +25,13 @@ export default function PoliticianCard({politician}){
                     <p>{politician.briefDiscrp}</p>
                     
                     <ul dir = "rtl">
-                        {briefViewershipStats.map((brief, i) =>{
-                            {console.log(brief)}
-                            return (
-                                <li>
-                                    <span>{brief.key}:</span>
-                                    <span>{numFormatter(brief.value)}</span>
-                                </li>
-                            )
-                        })}
+                        {briefViewershipStats.map(brief =>(
+                            <>
+                                <span>{brief.key}:</span>
+                                <span className = "bold">{numFormatter(brief.value)}</span>
+                            </>
+        
+                        ))}
                     </ul>
                     
                 </div>
