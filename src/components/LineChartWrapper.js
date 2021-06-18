@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import dayjs from 'dayjs'
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
@@ -7,33 +7,49 @@ import SelectDropdownWrapper from './SelectDropdownWrapper'
 
 
 
-const formatXAxis = timestamp=> new dayjs(timestamp * 1000).format("MMM,YYYY")
+const XAxisFormatter = timestamp=> new dayjs(timestamp * 1000).format("MMM,YYYY")
+const YAxisFormatter = magnitude => numFormatter(magnitude) 
 
 const formatTooltipLabel = label => new dayjs(label * 1000).format("MMMM YYYY")
 const formatToolTipKey = key => numFormatter(key, 1)
 
  
-export default function LineChartWrapper({title, dataSourceMacro, XAxisDataKey, YAxisDataKey }) {
-    
+export default function LineChartWrapper({title, dataSourceMacro,dataSource, XAxisDataKey, YAxisDataKey }) {
+    const [lcData, setLcData] = useState([{
+        "data":dataSourceMacro[dataSource], 
+        "XAxisDataKey": XAxisDataKey,
+        "YAxisDataKey": YAxisDataKey}])
+        
+    const sdCallback = data => setLcData([...lcData, {
+        "data" : data,
+        "XAxisDataKey": XAxisDataKey,
+        "YAxisDataKey": YAxisDataKey
+    }])
+
+
     return (
         <div className= "chart_wrapper">
             <ResponsiveContainer width={800} height={700}>
+                
                 <AreaChart 
                     width={500} 
                     height={400} 
-                    data={dataSourceMacro} 
+                    
                     margin={{top: 10, right: 50, left: 50, bottom: 0,}}>
 
                     <XAxis 
-                        dataKey={XAxisDataKey} 
+                        dataKey={lcData[0].XAxisDataKey} 
                         domain={['dataMin', 'dataMax']} 
                         type="number" 
                         tickCount={3}
                         interval="preserveStartEnd"
-                        tickFormatter={formatXAxis}
+                        tickFormatter={XAxisFormatter}
                     />
 
-                    <YAxis dataKey={YAxisDataKey} />
+                    <YAxis 
+                        dataKey={lcData[0].YAxisDataKey}
+                        tickFormatter= {YAxisFormatter}
+                    />
                     
                     <CartesianGrid 
                         id="grid" 
@@ -56,17 +72,23 @@ export default function LineChartWrapper({title, dataSourceMacro, XAxisDataKey, 
                         </linearGradient>
                     </defs>
 
-                    <Area 
-                        id= "stroke_main"
-                        type="linear" 
-                        dataKey={YAxisDataKey}  
-                        fillOpacity={1} 
-                        fill={`url(#degrade)`}  
-                    />
+                    {
+                        lcData.map(lcDataCurr =>(
+                            <Area 
+                            id= "stroke_main"
+                            type="linear" 
+                            data={lcDataCurr.data} 
+                            dataKey={YAxisDataKey}  
+                            fillOpacity={1} 
+                            fill={`url(#degrade)`}  
+                        />
+                        ))
+                    }
+
                 </AreaChart>
                 
             </ResponsiveContainer>
-            <SelectDropdownWrapper />   
+            <SelectDropdownWrapper callback = {sdCallback} dataSource= {dataSource}/>   
             <h2 className="chart_title">{title}</h2>
         
         </div>

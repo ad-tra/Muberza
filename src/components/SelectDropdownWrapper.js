@@ -3,7 +3,7 @@ import React from 'react'
 import Select from 'react-select'
 
 
-export default function SelectDropdownWrapper() {
+export default function SelectDropdownWrapper({callback, dataSource}) {
     const optionsData = useStaticQuery(
         graphql`
         query SelectDropdownWrapper {
@@ -34,7 +34,7 @@ export default function SelectDropdownWrapper() {
     const handleChange = (selectedValue)=> {
         fetch(selectedValue.value)
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => {callback(data.viewershipStats[dataSource])})
         .catch((err)=>{console.trace(err)})
     }
 

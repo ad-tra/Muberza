@@ -19,19 +19,19 @@ export default function PoliticianPage({data}) {
                     <p dir = "rtl">لكن لا بــــد أن أوضح لك أن كل هذه الأفكار لمغلوطــة حول استنكار  النشوة وتمجيد الألم نشأت بالفعل،  وسأعرض لك التفاصيل لتكتشف حقيقة  وأساس  تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب الشعور بالسعادة، ولكن بفضل</p>
                 </div> 
             
-                {/* ~~Chart.js~~ :( Chart goes here*/}        
+                   
                 
                 <div className= "chart_wrappers_container">
                     <LineChartWrapper 
                         title="عدد مشاهدات اللايفز في كل شهر"
-                        dataSourceMacro = {politician.viewershipStats.condensed}
+                        dataSourceMacro = {politician.viewershipStats} dataSource = "condensed"
                         XAxisDataKey = "startTimestamp"
                         YAxisDataKey = "views"
                     />
                     
                     <LineChartWrapper 
                         title = "مجموع مشاهدات كل اللايفز"
-                        dataSourceMacro = {politician.viewershipStats.full}
+                        dataSourceMacro = {politician.viewershipStats} dataSource = "full"
                         XAxisDataKey = "timestamp"
                         YAxisDataKey = "viewsSinceStart"
                     />
