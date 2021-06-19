@@ -1,7 +1,8 @@
 import React, {useEffect} from 'react'
 import PoliticianCard from '../components/PoliticianCard.js'
-import style from '../styles/global.scss'
 import { graphql, useStaticQuery } from 'gatsby'
+import { nanoid } from 'nanoid'
+
 import ClashingColors from '../components/ClashingColors.js'
 import BtnSwipUp from '../components/BtnSwipUp.js'
 import Layout from '../components/Layout.js'
@@ -57,7 +58,7 @@ export default function Index () {
               <BtnSwipUp href ="#hero_content" hrefText = "تـزحلق اللوطة"/>
             </ClashingColors>
             <section id= "hero_content">
-                {polisArr.allPoliticiansJson.edges.map((edge) => {return <PoliticianCard politician={edge.node} />})}
+                {polisArr.allPoliticiansJson.edges.map(edge => {return <PoliticianCard politician={edge.node} key = {nanoid()}/>})}
             </section>
 
         </Layout>

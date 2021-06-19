@@ -32,9 +32,11 @@ export default function SelectDropdownWrapper({callback, dataSource}) {
     
     
     const handleChange = (selectedValue)=> {
+        console.log(selectedValue)
         fetch(selectedValue.value)
         .then(response => response.json())
-        .then(data => {callback(data.viewershipStats[dataSource])})
+        .then(json => {callback(json.viewershipStats[dataSource])})
+        
         .catch((err)=>{console.trace(err)})
     }
 
@@ -43,6 +45,9 @@ export default function SelectDropdownWrapper({callback, dataSource}) {
             onChange= {handleChange}
             className= "select_dropdown_wrapper" 
             options={options} 
+            isRtl
+            isMulti
+            placeholder="قـــــارن"
             isSearchable = {false}/>
     )
 }

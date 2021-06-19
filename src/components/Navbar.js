@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Link} from 'gatsby';
-import * as styles from '../styles/global.scss'
+
 import Logo from "../../data/svg/logo.svg"
 
 export default function Navbar(){ 

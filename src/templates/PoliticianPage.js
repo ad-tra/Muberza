@@ -9,7 +9,6 @@ import {numFormatter} from '../components/Utils'
 export default function PoliticianPage({data}) {
 
     const politician = data.politiciansJson;
-    
     return (
         <Layout className = {`politician_page layout--${politician.party} `}>
             

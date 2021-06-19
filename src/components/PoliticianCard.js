@@ -1,14 +1,16 @@
 import React from 'react';
 import {Link} from 'gatsby';
-import { GatsbyImage} from 'gatsby-plugin-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import { nanoid } from 'nanoid';
 
 import {numFormatter} from './Utils'
 
+
 export default function PoliticianCard({politician}){
     const briefViewershipStats = 
-    [{key:"مجموع المشــاهدات ", value: politician.viewershipStats.brief.aggregateViews},
-    {key:"معدل مشاهدة اللايـف", value: politician.viewershipStats.brief.viewsPerLive},
-    {key:"عـدد اللايــفوات", value: politician.viewershipStats.full.length}]
+    [{label:"مجموع المشــاهدات ", value: politician.viewershipStats.brief.aggregateViews},
+    {label:"معدل مشاهدة اللايـف", value: politician.viewershipStats.brief.viewsPerLive},
+    {label:"عـدد اللايــفوات", value: politician.viewershipStats.full.length}]
 
     return(
         <section className= {`politician_card_container pc--${politician.party}`} >
@@ -26,10 +28,10 @@ export default function PoliticianCard({politician}){
                     
                     <ul dir = "rtl">
                         {briefViewershipStats.map(brief =>(
-                            <>
-                                <span>{brief.key}:</span>
+                            <React.Fragment key = {nanoid()}>
+                                <span>{brief.label}:</span>
                                 <span className = "bold">{numFormatter(brief.value)}</span>
-                            </>
+                            </React.Fragment>
         
                         ))}
                     </ul>

@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import dayjs from 'dayjs'
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import {nanoid} from 'nanoid'
 
 import { numFormatter } from './Utils'; 
 import SelectDropdownWrapper from './SelectDropdownWrapper'
@@ -15,21 +16,24 @@ const formatToolTipKey = key => numFormatter(key, 1)
 
  
 export default function LineChartWrapper({title, dataSourceMacro,dataSource, XAxisDataKey, YAxisDataKey }) {
+
     const [lcData, setLcData] = useState([{
         "data":dataSourceMacro[dataSource], 
         "XAxisDataKey": XAxisDataKey,
         "YAxisDataKey": YAxisDataKey}])
         
-    const sdCallback = data => setLcData([...lcData, {
-        "data" : data,
-        "XAxisDataKey": XAxisDataKey,
-        "YAxisDataKey": YAxisDataKey
-    }])
+    const sdCallback = data => setLcData(()=>{
+        let selectData = {"data" : data,"XAxisDataKey": XAxisDataKey,"YAxisDataKey": YAxisDataKey}
+        
+        // max dataSources that can be available in the same chart is 3.  
+        if(lcData.length >2 ) return [lcData[0], lcData[1],selectData]
+        return [...lcData, selectData]
+    })
 
-
+console.log(lcData);
     return (
-        <div className= "chart_wrapper">
-            <ResponsiveContainer width={800} height={700}>
+        <div className= "line_chart_wrapper">
+            <ResponsiveContainer width="100%" height={700}>
                 
                 <AreaChart 
                     width={500} 
@@ -76,6 +80,7 @@ export default function LineChartWrapper({title, dataSourceMacro,dataSource, XAx
                         lcData.map(lcDataCurr =>(
                             <Area 
                             id= "stroke_main"
+                            key = {nanoid()}
                             type="linear" 
                             data={lcDataCurr.data} 
                             dataKey={YAxisDataKey}  

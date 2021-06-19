@@ -1,10 +1,12 @@
-.chart_wrapper{
+.line_chart_wrapper{
     display: flex;
     align-items: center;
     flex-direction: column;
-    .recharts-responsive-container{
+    width: 800px;
+    margin:4em auto;
+    
         margin-top: 8em;
-    }
+    
     .chart_title{
         font-family: "meral";
    
@@ -16,7 +18,7 @@
 
 
 @mixin addPartyColors($primary, $secondary, $complementary){ 
-    .chart_wrapper { 
+    .line_chart_wrapper { 
         .chart_title{
             color:$secondary;
             opacity: 0.9
