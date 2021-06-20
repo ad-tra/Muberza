@@ -1,9 +1,10 @@
 import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
-import Select from 'react-select'
+import Select  from 'react-select'
 
 
-export default function SelectDropdownWrapper({callback, dataSource}) {
+
+export default function SelectDropdownWrapper({callback, dataSource, maxOptions}) {
     const optionsData = useStaticQuery(
         graphql`
         query SelectDropdownWrapper {
@@ -26,28 +27,31 @@ export default function SelectDropdownWrapper({callback, dataSource}) {
         optionsData[sourceJson].edges.forEach((node)=>{result.push({value: `/api/${node.node.parent.relativePath}`, label: node.node.name})})
         return result;
     }
-    let options = normalizeGraphql("allPoliticiansJson", )
+    let options = normalizeGraphql("allPoliticiansJson")
     
     
-    
-    
-    const handleChange = (selectedValue)=> {
-        console.log(selectedValue)
-        fetch(selectedValue.value)
-        .then(response => response.json())
-        .then(json => {callback(json.viewershipStats[dataSource])})
-        
-        .catch((err)=>{console.trace(err)})
+    async function handleChange  (selectedOptions){
+      if(selectedOptions.length> maxOptions) selectedOptions.splice((maxOptions-1), 1)
+      let result = []
+      for(let i = 0; i<selectedOptions.length; i++){ 
+        const response = await fetch(selectedOptions[i].value)
+        const json = await response.json()
+        result.push(json.viewershipStats[dataSource])
+      }
+      callback(result)
+      
     }
 
     return (
         <Select 
-            onChange= {handleChange}
+            handleChange = {handleChange}
             className= "select_dropdown_wrapper" 
-            options={options} 
+            onChange = {handleChange}
             isRtl
             isMulti
             placeholder="قـــــارن"
-            isSearchable = {false}/>
+            isSearchable = {false}
+            options={options}
+        />
     )
 }

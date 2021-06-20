@@ -17,20 +17,12 @@ const formatToolTipKey = key => numFormatter(key, 1)
  
 export default function LineChartWrapper({title, dataSourceMacro,dataSource, XAxisDataKey, YAxisDataKey }) {
 
-    const [lcData, setLcData] = useState([{
-        "data":dataSourceMacro[dataSource], 
-        "XAxisDataKey": XAxisDataKey,
-        "YAxisDataKey": YAxisDataKey}])
+    const [lcData, setLcData] = useState([
+        dataSourceMacro[dataSource]])
         
-    const sdCallback = data => setLcData(()=>{
-        let selectData = {"data" : data,"XAxisDataKey": XAxisDataKey,"YAxisDataKey": YAxisDataKey}
-        
-        // max dataSources that can be available in the same chart is 3.  
-        if(lcData.length >2 ) return [lcData[0], lcData[1],selectData]
-        return [...lcData, selectData]
-    })
+    const sdCallback = dataArr => setLcData([lcData[0], ...dataArr])
+console.log(lcData)
 
-console.log(lcData);
     return (
         <div className= "line_chart_wrapper">
             <ResponsiveContainer width="100%" height={700}>
@@ -42,7 +34,7 @@ console.log(lcData);
                     margin={{top: 10, right: 50, left: 50, bottom: 0,}}>
 
                     <XAxis 
-                        dataKey={lcData[0].XAxisDataKey} 
+                        dataKey={XAxisDataKey} 
                         domain={['dataMin', 'dataMax']} 
                         type="number" 
                         tickCount={3}
@@ -51,7 +43,7 @@ console.log(lcData);
                     />
 
                     <YAxis 
-                        dataKey={lcData[0].YAxisDataKey}
+                        dataKey={YAxisDataKey}
                         tickFormatter= {YAxisFormatter}
                     />
                     
@@ -82,7 +74,7 @@ console.log(lcData);
                             id= "stroke_main"
                             key = {nanoid()}
                             type="linear" 
-                            data={lcDataCurr.data} 
+                            data={lcDataCurr} 
                             dataKey={YAxisDataKey}  
                             fillOpacity={1} 
                             fill={`url(#degrade)`}  
@@ -93,7 +85,7 @@ console.log(lcData);
                 </AreaChart>
                 
             </ResponsiveContainer>
-            <SelectDropdownWrapper callback = {sdCallback} dataSource= {dataSource}/>   
+            <SelectDropdownWrapper callback = {sdCallback} dataSource= {dataSource} maxOptions = {2}/>   
             <h2 className="chart_title">{title}</h2>
         
         </div>
