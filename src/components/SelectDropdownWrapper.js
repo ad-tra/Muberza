@@ -4,11 +4,11 @@ import Select  from 'react-select'
 
 
 
-export default function SelectDropdownWrapper({callback, dataSource, maxOptions}) {
+export default function SelectDropdownWrapper({callback, dataSource, maxOptions, originPoliticianName}) {
     const optionsData = useStaticQuery(
         graphql`
         query SelectDropdownWrapper {
-            allPoliticiansJson {
+            allPoliticiansJson(sort: {fields: viewershipStats___brief___aggregateViews, order: DESC}) {
               edges {
                 node {
                   name
@@ -24,7 +24,10 @@ export default function SelectDropdownWrapper({callback, dataSource, maxOptions}
     )
     const normalizeGraphql = sourceJson => {
         let result = []
-        optionsData[sourceJson].edges.forEach((node)=>{result.push({value: `/api/${node.node.parent.relativePath}`, label: node.node.name})})
+        optionsData[sourceJson].edges.forEach((node)=>{
+          if(node.node.name !== originPoliticianName) 
+            result.push({value: `/api/${node.node.parent.relativePath}`, label: node.node.name})
+        })
         return result;
     }
     let options = normalizeGraphql("allPoliticiansJson")

@@ -14,7 +14,19 @@
 
 }
 
-
+@mixin addDataSourceColor($strokeColor, $i){
+    #stroke#{$i}{
+        stroke: $strokeColor
+    }
+    #degrade#{$i}{
+        stop:nth-of-type(1){
+            stop-color: $strokeColor;
+        }
+        stop:nth-of-type(2){
+            stop-color: transparent;
+        }
+    }
+}
 
 
 @mixin addPartyColors($primary, $secondary, $complementary){ 
@@ -24,17 +36,11 @@
             opacity: 0.9
         }
 
-        #stroke_main{
-            stroke:$secondary;
-        }
-        #degrade {
-            stop:nth-of-type(1){
-                stop-color: $secondary;
-            }
-            stop:nth-of-type(2){
-                stop-color: $primary;
-            }
-        }
+        @include addDataSourceColor($secondary, 0);
+        @include addDataSourceColor($complementary, 1);
+        @include addDataSourceColor(rgba(79, 101, 199, 0.6) ,2);
+
+        
         #grid{
             stroke: rgba($secondary, 0.5);   
         }
@@ -45,9 +51,9 @@
 }
 
 .layout--dostouri{
-    @include addPartyColors($red--dark, $red--light, $green--light);
+    @include addPartyColors($red--dark, $red--light, rgba($green--light,0.5));
 }
 
 .layout--karama{
-    @include addPartyColors($green--light, $green--dark, $red--light);
+    @include addPartyColors($green--light, $green--dark,#c23c2a9c);
 }

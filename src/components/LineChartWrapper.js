@@ -17,11 +17,9 @@ const formatToolTipKey = key => numFormatter(key, 1)
  
 export default function LineChartWrapper({title, dataSourceMacro,dataSource, XAxisDataKey, YAxisDataKey }) {
 
-    const [lcData, setLcData] = useState([
-        dataSourceMacro[dataSource]])
+    const [lcData, setLcData] = useState([dataSourceMacro.viewershipStats[dataSource]])
         
     const sdCallback = dataArr => setLcData([lcData[0], ...dataArr])
-console.log(lcData)
 
     return (
         <div className= "line_chart_wrapper">
@@ -60,32 +58,41 @@ console.log(lcData)
                         formatter={formatToolTipKey}
                     />
                     
-                    {/*defs for gradient values*/}
-                    <defs>
-                        <linearGradient id={`degrade`}  x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="20%"  stopOpacity={1}/>
-                            <stop offset="100%"  stopOpacity={1}/>
-                        </linearGradient>
-                    </defs>
-
                     {
-                        lcData.map(lcDataCurr =>(
+                        lcData.map((lcDataCurr, i)=>(
+                            <defs>
+                                <linearGradient id={`degrade${i}`}  x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="20%"  stopOpacity={1}/>
+                                    <stop offset="100%"  stopOpacity={1}/>
+                                </linearGradient>
+                            </defs>
+                        ))
+                    }
+                    {    
+                        lcData.map((lcDataCurr, i) =>(
+                                 
                             <Area 
-                            id= "stroke_main"
-                            key = {nanoid()}
-                            type="linear" 
-                            data={lcDataCurr} 
-                            dataKey={YAxisDataKey}  
-                            fillOpacity={1} 
-                            fill={`url(#degrade)`}  
-                        />
+                                id= {`stroke${i}`}
+                                type="linear" 
+                                strokeWidth = {2}
+                                data={lcDataCurr} 
+                                dataKey={YAxisDataKey}  
+                                fillOpacity={1} 
+                                fill={`url(#degrade${i})`}  
+                            />
+                            
                         ))
                     }
 
                 </AreaChart>
                 
             </ResponsiveContainer>
-            <SelectDropdownWrapper callback = {sdCallback} dataSource= {dataSource} maxOptions = {2}/>   
+            <SelectDropdownWrapper 
+                callback = {sdCallback} 
+                dataSource= {dataSource} 
+                maxOptions = {2}
+                originPoliticianName = {dataSourceMacro.name}
+            />   
             <h2 className="chart_title">{title}</h2>
         
         </div>
