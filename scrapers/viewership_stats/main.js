@@ -8,47 +8,44 @@ const dayjs = require('dayjs')
 const {getStats} =  require("./evaluate.js");
 const mockData = JSON.parse("[{\"node\":{\"slug\":\"abir-moussi\",\"facebookSlug\":\"AbirMoussiOfficielle\",\"id\":\"58ce0cd4-65cf-5515-b0a8-83786a2a2ef7\",\"parent\":{\"absolutePath\":\"C:/Users/19083/OneDrive/Documents/programation_projects/personal/Muberza/static/api/politicians/abir_moussi.json\"}}},{\"node\":{\"slug\":\"adbeldtif-al-oulwi\",\"facebookSlug\":\"ABDELLATIFALOUI22\",\"id\":\"dc62185a-54c4-5427-8bb6-24d860bbe359\",\"parent\":{\"absolutePath\":\"C:/Users/19083/OneDrive/Documents/programation_projects/personal/Muberza/static/api/politicians/adbeldtif_al_oulwi.json\"}}},{\"node\":{\"slug\":\"mohamad-affes\",\"facebookSlug\":\"Dr.MohamedAffes\",\"id\":\"5ea7d794-c3b2-5093-bf78-cc18a6443624\",\"parent\":{\"absolutePath\":\"C:/Users/19083/OneDrive/Documents/programation_projects/personal/Muberza/static/api/politicians/mohamad_affes.json\"}}},{\"node\":{\"slug\":\"ziad-hechmi\",\"facebookSlug\":\"elhechmi.ziad\",\"id\":\"29cf35d8-17c3-5b96-bb59-e63f9f61c7f6\",\"parent\":{\"absolutePath\":\"C:/Users/19083/OneDrive/Documents/programation_projects/personal/Muberza/static/api/politicians/ziad_hechmi.json\"}}},{\"node\":{\"slug\":\"saif-din-makhlouf\",\"facebookSlug\":\"makseif.page\",\"id\":\"2d34a9da-23f1-5ec4-b9f4-ef0782c6bff5\",\"parent\":{\"absolutePath\":\"C:/Users/19083/OneDrive/Documents/programation_projects/personal/Muberza/static/api/politicians/saif_makhlouf.json\"}}},{\"node\":{\"slug\":\"nedhal-soudi\",\"facebookSlug\":\"nidhalsaoudi89\",\"id\":\"5e6ad5b1-df72-5130-9f31-cfd492bb83eb\",\"parent\":{\"absolutePath\":\"C:/Users/19083/OneDrive/Documents/programation_projects/personal/Muberza/static/api/politicians/nedhal_soudi.json\"}}}]")
 
-/**
- * given a random unix epoch time, return a dayjs object with the first day of its month and year. 
- */
-function normalizeMonth(timestamp){
-    let startRaw = new dayjs(timestamp * 1000)
-    let startYear = startRaw.year(); let startMonth = startRaw.month()
-    
-    return new dayjs(`${startMonth+1}/1/${startYear}/`)
-}
 
-function arrFullToCondensed(interval, dataArr){
+function arrFullToCondensed(interval, dataArr, floor, ceil= undefined){
     
     dataArr = dataArr.reverse();
 
-    let start = normalizeMonth(dataArr[0].timestamp)
+    let start = new dayjs(floor * 1000).startOf('month')
     let end = start.add(interval.magnitude, interval.unit)
-    const resultArr = []; let condensedDataPoint = 0;
+    const resultArr = []; let condensedViews = 0, condensedViewsSinceStart =0;
     
-
     for(let i = 0; i<dataArr.length; i++){
 
-        let dataPoint = dataArr[i].views;
-        let dataTimestamp = new dayjs(dataArr[i].timestamp * 1000)
+        let fullViews = dataArr[i].views;
+        let fullViewsSinceStart = dataArr[i].viewSinceStart
 
-        if(dataTimestamp.diff(end) <= 0){
-            condensedDataPoint += dataPoint
-            //if this is the last item and the condensedDataPoint is loaded, we don't want to waste it. we will push it even though we haven't surpassed the interval.
-            if(i != dataArr.length-1) continue
+        let fullTimestamp = new dayjs(dataArr[i].timestamp * 1000)
+
+        if(fullTimestamp.diff(end) <= 0 && fullTimestamp.diff(start) >= 0){
+            condensedViews += fullViews
+            condensedViewsSinceStart += fullViewsSinceStart
+            //if this is the last item and the condensedViews is loaded, we don't want to waste it. we will push it even though we haven't surpassed the interval.
+            if(i === dataArr.length-1) 
+                dataArr[i].timestamp = new dayjs(ceil); 
+            else continue 
         }
-        //dataTimestamp > end
-        resultArr.push({"startTimestamp":start.unix(),"endTimestamp":end.unix(), "views":condensedDataPoint })
+        //fullTimestamp > end
+        resultArr.push({"startTimestamp":start.unix(),"endTimestamp":end.unix(), "views":condensedViews, "viewsSinceStart":condensedViewsSinceStart })
         start = new dayjs(end);
         end = end.add(interval.magnitude, interval.unit)
         
-        //triggers incase the dataTimestamp is beyond the end even after the interval increase. This means the interval had 0 views. 
-        if(dataTimestamp.diff(end) >=  0){
+        //triggers incase the fullTimestamp is beyond the end even after the interval increase. This means the interval had 0 views. 
+        if(fullTimestamp.diff(end) >=  0 || fullTimestamp.diff(start) <=0){
             i--;
-            condensedDataPoint = 0
+            condensedViews = 0
+            condensedViewsSinceStart = 0;
             continue;
         }
-        condensedDataPoint = dataPoint;
+        condensedViews = fullViews;
+        condensedViewsSinceStart = fullViewsSinceStart
         
     }
     return resultArr;
@@ -79,7 +76,12 @@ async function main(query){
             await page.waitForSelector("._2pie");
 
             const viewershipStatsObj = await page.evaluate(getStats)
-            const condensedArr =  arrFullToCondensed({'magnitude': 1, 'unit': "months"}, viewershipStatsObj.full)
+            const condensedArr =  arrFullToCondensed(
+                {'magnitude': 1, 'unit': "months"},
+                viewershipStatsObj.full,
+                '2019'
+                /*ceil will be present by defaults*/
+                )
             
             
             let data = JSON.parse(fs.readFileSync(absolutePath));
