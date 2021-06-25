@@ -10,42 +10,47 @@ const mockData = JSON.parse("[{\"node\":{\"slug\":\"abir-moussi\",\"facebookSlug
 
 
 function arrFullToCondensed(interval, dataArr, floor, ceil= undefined){
-    
     dataArr = dataArr.reverse();
 
-    let start = new dayjs(floor * 1000).startOf('month')
+    let start = new dayjs(floor).startOf('month')
     let end = start.add(interval.magnitude, interval.unit)
-    const resultArr = []; let condensedViews = 0, condensedViewsSinceStart =0;
+    ceil = new dayjs(ceil);
+    const resultArr = []; let condensedViews = 0, fullViewsSinceStart  = 0; 
     
-    for(let i = 0; i<dataArr.length; i++){
-
+    for(let i = 0; i<=dataArr.length && start.diff(ceil) <= 0; i++){
+  
         let fullViews = dataArr[i].views;
-        let fullViewsSinceStart = dataArr[i].viewSinceStart
-
         let fullTimestamp = new dayjs(dataArr[i].timestamp * 1000)
-
+  
         if(fullTimestamp.diff(end) <= 0 && fullTimestamp.diff(start) >= 0){
             condensedViews += fullViews
-            condensedViewsSinceStart += fullViewsSinceStart
+            fullViewsSinceStart = dataArr[i].viewsSinceStart
+            
             //if this is the last item and the condensedViews is loaded, we don't want to waste it. we will push it even though we haven't surpassed the interval.
-            if(i === dataArr.length-1) 
-                dataArr[i].timestamp = new dayjs(ceil); 
-            else continue 
+            
+        if(i !== (dataArr.length -1))
+            continue 
+        else {
+            console.log('this is last viable fullpoint')
+        }
+            
+        
+        
         }
         //fullTimestamp > end
-        resultArr.push({"startTimestamp":start.unix(),"endTimestamp":end.unix(), "views":condensedViews, "viewsSinceStart":condensedViewsSinceStart })
+        resultArr.push({"startTimestamp":start.unix(),"endTimestamp":end.unix(), "views":condensedViews, "viewsSinceStart":fullViewsSinceStart })
         start = new dayjs(end);
         end = end.add(interval.magnitude, interval.unit)
         
         //triggers incase the fullTimestamp is beyond the end even after the interval increase. This means the interval had 0 views. 
-        if(fullTimestamp.diff(end) >=  0 || fullTimestamp.diff(start) <=0){
-            i--;
-            condensedViews = 0
-            condensedViewsSinceStart = 0;
-            continue;
-        }
-        condensedViews = fullViews;
-        condensedViewsSinceStart = fullViewsSinceStart
+        //if(fullTimestamp.diff(end) >=  0 || fullTimestamp.diff(start) <=0){
+        i--;
+        condensedViews = 0
+            
+            //continue;
+        
+        //condensedViews = fullViews;
+        //condensedViewsSinceStart = fullViewsSinceStart
         
     }
     return resultArr;
@@ -67,12 +72,15 @@ async function main(query){
             return new dayjs(dateStr).unix();
         })
         
-        
+        await page.setCookie({name: 'locale', value: 'en_US', domain:'facebook.com'})
         //scrapes full viewership stats and adds them to the politician json file.
         for(let i = 0; i< query.length; i++){ 
             const {facebookSlug, parent:{absolutePath}} = query[i].node
-
+            
             await page.goto(`https://www.facebook.com/${facebookSlug}/live_videos/`)
+            if(i == 0)
+                await page.click('ul._2pid > li:nth-of-type(3) > a')
+            
             await page.waitForSelector("._2pie");
 
             const viewershipStatsObj = await page.evaluate(getStats)
