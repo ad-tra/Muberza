@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import dayjs from 'dayjs'
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import {nanoid} from 'nanoid'
 
 import { numFormatter } from './Utils'; 
@@ -25,7 +25,7 @@ export default function LineChartWrapper({title, dataSourceMacro,dataSource, XAx
         <div className= "line_chart_wrapper">
             <ResponsiveContainer width="100%" height={700}>
                 
-                <AreaChart 
+                <LineChart 
                     width={500} 
                     height={400} 
                     
@@ -71,7 +71,7 @@ export default function LineChartWrapper({title, dataSourceMacro,dataSource, XAx
                     {    
                         lcData.map((lcDataCurr, i) =>(
                                  
-                            <Area 
+                            <Line 
                                 id= {`stroke${i}`}
                                 type="linear" 
                                 strokeWidth = {2}
@@ -84,17 +84,17 @@ export default function LineChartWrapper({title, dataSourceMacro,dataSource, XAx
                         ))
                     }
 
-                </AreaChart>
+                </LineChart>
                 
-            </ResponsiveContainer>
+            </ResponsiveContainer> 
+            <h2 className="chart_title">{title}</h2>
+            
             <SelectDropdownWrapper 
                 callback = {sdCallback} 
                 dataSource= {dataSource} 
                 maxOptions = {2}
                 originPoliticianName = {dataSourceMacro.name}
-            />   
-            <h2 className="chart_title">{title}</h2>
-        
+            />  
         </div>
     )
 }

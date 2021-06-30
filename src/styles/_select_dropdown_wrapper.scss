@@ -1,3 +1,36 @@
 .select_dropdown_wrapper {
     width: 500px;
+    
+    /*Styles for Control*/
+    >div:first-of-type{
+        background-color: transparent;
+        border-bottom: 2px solid;
+        cursor: default;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        transition: all 100ms;
+        box-sizing: border-box;
+    
+    }
+}
+
+@mixin addPartyColors($primary){
+    .select_dropdown_wrapper {
+        /*Styles for Control*/
+        >div:first-of-type{
+            border-color: $primary;
+        }
+        div{
+            color: $primary
+        }
+    }
+}
+
+.pp--dostouri{
+    @include addPartyColors($red--light)
+}
+.pp--karama{
+    @include addPartyColors($green--dark)
 }

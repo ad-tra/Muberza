@@ -30,7 +30,8 @@ export default function SelectDropdownWrapper({callback, dataSource, maxOptions,
         })
         return result;
     }
-    let options = normalizeGraphql("allPoliticiansJson")
+    const options = normalizeGraphql("allPoliticiansJson")
+    
     
     
     async function handleChange  (selectedOptions){
@@ -45,6 +46,11 @@ export default function SelectDropdownWrapper({callback, dataSource, maxOptions,
       
     }
 
+
+    const customStyles = {
+      control: () =>(null)
+    }
+
     return (
         <Select 
             handleChange = {handleChange}
@@ -52,6 +58,7 @@ export default function SelectDropdownWrapper({callback, dataSource, maxOptions,
             onChange = {handleChange}
             isRtl
             isMulti
+            styles = {customStyles}
             placeholder="قـــــارن"
             isSearchable = {false}
             options={options}

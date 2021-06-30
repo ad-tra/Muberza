@@ -47,8 +47,7 @@ export default function Index () {
       })
     })
 
-
-    
+ 
     return (
         <Layout className="layout--clashing_colors"> 
             <ClashingColors
