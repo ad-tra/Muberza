@@ -10,4 +10,6 @@ export const numFormatter = (num,digits=0) => {
      }
      return num;
   }
-numFormatter(482013)
+export const kashida = str => {
+   return /* some cool regex */
+}

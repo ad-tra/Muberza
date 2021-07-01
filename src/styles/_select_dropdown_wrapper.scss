@@ -1,7 +1,7 @@
 .select_dropdown_wrapper {
     width: 500px;
     
-    /*Styles for Control*/
+    /*CONTROL*/
     >div:first-of-type{
         background-color: transparent;
         border-bottom: 2px solid;
@@ -14,14 +14,42 @@
         box-sizing: border-box;
     
     }
+    /*MENU*/
+    >div:nth-of-type(2){
+        top: 100%;
+        border-radius: 4px;
+        margin-bottom: 8px;
+        margin-top: 8px;
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+        box-sizing: border-box;
+    }
+    [tabindex = '-1']{
+        padding: 14px 11px
+    }
 }
 
-@mixin addPartyColors($primary){
+@mixin addPartyColors($primary, $secondary){
     .select_dropdown_wrapper {
-        /*Styles for Control*/
+        /*CONTROL*/
         >div:first-of-type{
             border-color: $primary;
+            background-color: $secondary;
         }
+        /*MENU*/
+        >div:nth-of-type(2){
+            background-color: $secondary;
+            box-shadow: 7px 3px 16px 0px rgba($primary, 0.08)
+        }
+        [tabindex = '-1']{
+            background-color: $secondary;
+            :hover{
+                background-color: red;
+                color:red;
+            }
+        }
+
         div{
             color: $primary
         }
@@ -29,8 +57,8 @@
 }
 
 .pp--dostouri{
-    @include addPartyColors($red--light)
+    @include addPartyColors($red--light, $red--dark)
 }
 .pp--karama{
-    @include addPartyColors($green--dark)
+    @include addPartyColors($green--dark, $green--light)
 }

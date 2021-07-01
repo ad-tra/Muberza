@@ -30,8 +30,8 @@ export default function PoliticianPage({data}) {
                     
                     <LineChartWrapper 
                         title = "مجموع مشاهدات كل اللايفز"
-                        dataSourceMacro = {politician} dataSource = "full"
-                        XAxisDataKey = "timestamp"
+                        dataSourceMacro = {politician} dataSource = "condensed"
+                        XAxisDataKey = "startTimestamp"
                         YAxisDataKey = "viewsSinceStart"
                     />
                     
@@ -63,6 +63,7 @@ export const query = graphql`
                 startTimestamp
                 endTimestamp
                 views
+                viewsSinceStart
             }
             full {
                 timestamp

@@ -48,7 +48,8 @@ export default function SelectDropdownWrapper({callback, dataSource, maxOptions,
 
 
     const customStyles = {
-      control: () =>(null)
+      control: () =>(null),
+      menu: ()=>(null)
     }
 
     return (
@@ -58,6 +59,7 @@ export default function SelectDropdownWrapper({callback, dataSource, maxOptions,
             onChange = {handleChange}
             isRtl
             isMulti
+            
             styles = {customStyles}
             placeholder="قـــــارن"
             isSearchable = {false}
