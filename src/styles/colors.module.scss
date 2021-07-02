@@ -1,0 +1,11 @@
+$red--dark: #40100A;
+$green--dark: #153325;
+$green--light: #159E5B;
+$red--light: #EB4B36;
+
+:export {
+    redDark:$red--dark;
+    greenDark:$green--dark;
+    greenLight:$green--light;
+    redLight:$red--light;
+}

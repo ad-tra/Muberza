@@ -6,10 +6,13 @@
     font-family: 'Meral';
     src:url("../fonts/Meral-Regular.otf"); 
 }
-$red--dark: #40100A;
-$green--dark: #153325;
-$green--light: #159E5B;
-$red--light: #EB4B36;
+
+
+
+@import "./colors.module.scss";
+
+
+
 $navbarXPadding: 5vw;
 $navbarYpadding: 2.5em;
 $breakpointMobile: 1200px;
@@ -47,5 +50,7 @@ ul{list-style: none;}
 
 @import "./politician_page";
 @import "./line_chart_wrapper";
-@import "./select_dropdown_wrapper";
 
+:export{
+    redDark : $red--dark;
+}

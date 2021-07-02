@@ -60,7 +60,7 @@ export default function LineChartWrapper({title, dataSourceMacro,dataSource, XAx
                     
                     {
                         lcData.map((lcDataCurr, i)=>(
-                            <defs>
+                            <defs key = {nanoid()}>
                                 <linearGradient id={`degrade${i}`}  x1="0" y1="0" x2="0" y2="1">
                                     <stop offset="20%"  stopOpacity={1}/>
                                     <stop offset="100%"  stopOpacity={1}/>
@@ -73,8 +73,9 @@ export default function LineChartWrapper({title, dataSourceMacro,dataSource, XAx
                                  
                             <Line 
                                 id= {`stroke${i}`}
+                                key = {nanoid()}
                                 type="linear" 
-                                strokeWidth = {2}
+                                strokeWidth = {4}
                                 data={lcDataCurr} 
                                 dataKey={YAxisDataKey}  
                                 fillOpacity={1} 
@@ -93,6 +94,7 @@ export default function LineChartWrapper({title, dataSourceMacro,dataSource, XAx
                 callback = {sdCallback} 
                 dataSource= {dataSource} 
                 maxOptions = {2}
+                originPoliticianParty = {dataSourceMacro.party}
                 originPoliticianName = {dataSourceMacro.name}
             />  
         </div>
