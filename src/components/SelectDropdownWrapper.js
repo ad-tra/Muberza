@@ -2,7 +2,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import React, {components} from 'react'
 import Select  from 'react-select'
 import * as Theme from '../styles/colors.module.scss'
-
+import tinycolor from 'tinycolor2'
 
 export default function SelectDropdownWrapper({callback, dataSource, maxOptions, originPoliticianName, originPoliticianParty}) {
     const optionsData = useStaticQuery(
@@ -56,14 +56,20 @@ export default function SelectDropdownWrapper({callback, dataSource, maxOptions,
     /**
      * add party colors by getting theme colors from sass file.
      */
-    let primary, secondary;
+    let primary, secondary, complementary, complementaryText, accentText;
     if(originPoliticianParty === "dostouri"){
       primary = Theme.redLight;
       secondary= Theme.redDark;
+      complementary = Theme.greenLight 
+      complementaryText = complementary
+      accentText = tinycolor(Theme.accent).lighten(20).toString()
     }
     else{
       primary= Theme.greenDark 
       secondary= Theme.greenLight
+      complementary = Theme.redLight 
+      complementaryText = tinycolor(complementary).darken(30).toString()
+      accentText = tinycolor(Theme.accent).darken(20).toString()
     }
       
     
@@ -95,6 +101,24 @@ export default function SelectDropdownWrapper({callback, dataSource, maxOptions,
 
       }),
       clearIndicator: ()=>({display: 'none'}),
+      multiValue: defaultStyles=>({
+        ...defaultStyles,
+        backgroundColor: 'transparent',
+        
+        '&:nth-of-type(1)':{
+          border:`2px dashed ${complementary}` ,
+          '>div':{
+            color:complementaryText
+          }
+        },
+        '&:nth-of-type(2)':{
+          border: `2px dashed ${Theme.accent}`,
+          '>div':{
+            color:accentText
+          }
+        }
+      }),
+      
       option: (defaultStyles, {isFocused, }) => ({ 
         ...defaultStyles,
         padding: '14px 11px',
@@ -118,7 +142,7 @@ export default function SelectDropdownWrapper({callback, dataSource, maxOptions,
       colors: {
         ...theme.colors,
         primary: primary,
-        neutral80: secondary,
+        neutral80: 'black',
         neutral20: primary,
         neutral50: primary,
 

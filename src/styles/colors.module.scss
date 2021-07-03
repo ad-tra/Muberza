@@ -2,10 +2,12 @@ $red--dark: #40100A;
 $green--dark: #153325;
 $green--light: #159E5B;
 $red--light: #EB4B36;
+$accent: #4f65c7f8;
 
 :export {
     redDark:$red--dark;
     greenDark:$green--dark;
     greenLight:$green--light;
     redLight:$red--light;
+    accent: $accent;
 }
