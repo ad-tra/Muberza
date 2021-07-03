@@ -77,10 +77,9 @@ export default function SelectDropdownWrapper({callback, dataSource, maxOptions,
       control:(defaultStyles, {isFocused}) => ({
         ...defaultStyles,
         borderStyle: isFocused ? 'none' : 'none none solid none',
-        width: '500px',
+        width: '200px',
         borderColor: primary,
         backgroundColor: 'transparent',
-        
         "&:hover":{
           borderColor: primary
         }

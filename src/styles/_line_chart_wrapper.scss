@@ -7,11 +7,29 @@
     
         margin-top: 8em;
     
-    .chart_title{
-        font-family: "meral";
-        padding: 2em 0;
+    
+    .chart_intel{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+        position: relative;
+        padding-top: 40px;
+        padding-bottom: 100px;
+        /*idealy width is "inherit" but because recharts has margin of 50px (left and right) for the axis labels. this is set to 700
+        700 = 800 - 50 * 2 
+        */
+        width: 700px;
+        .chart_title{
+            font-family: "meral";
+            justify-self: flex-end;
+            font-size: 20px;
+        }
+        .react_select{
+            position: relative;
+            left:60px
+        }
     }
-
 }
 
 @mixin addDataSourceColor($strokeColor, $i){

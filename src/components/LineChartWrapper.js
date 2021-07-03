@@ -87,16 +87,19 @@ export default function LineChartWrapper({title, dataSourceMacro,dataSource, XAx
 
                 </LineChart>
                 
-            </ResponsiveContainer> 
-            <h2 className="chart_title">{title}</h2>
             
-            <SelectDropdownWrapper 
-                callback = {sdCallback} 
-                dataSource= {dataSource} 
-                maxOptions = {2}
-                originPoliticianParty = {dataSourceMacro.party}
-                originPoliticianName = {dataSourceMacro.name}
-            />  
+            </ResponsiveContainer> 
+            <div className="chart_intel">
+                <h2 className="chart_title">{title}</h2>
+                <SelectDropdownWrapper 
+                    callback = {sdCallback} 
+                    dataSource= {dataSource} 
+                    maxOptions = {2}
+                    originPoliticianParty = {dataSourceMacro.party}
+                    originPoliticianName = {dataSourceMacro.name}
+                />  
+            </div>
+            
         </div>
     )
 }
