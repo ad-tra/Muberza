@@ -41,7 +41,7 @@ export default function Index () {
     )
     
     useEffect(() => {
-      document.querySelector(".clashing_colors_cta a").addEventListener("click",(event)=>{
+      document.querySelector(".clashing_colors_cta").addEventListener("click",(event)=>{
         event.preventDefault()
         document.querySelector('#hero_content').scrollIntoView({behavior:"smooth"})
       })

@@ -58,16 +58,6 @@ export default function LineChartWrapper({title, dataSourceMacro,dataSource, XAx
                         formatter={formatToolTipKey}
                     />
                     
-                    {
-                        lcData.map((lcDataCurr, i)=>(
-                            <defs key = {nanoid()}>
-                                <linearGradient id={`degrade${i}`}  x1="0" y1="0" x2="0" y2="1">
-                                    <stop offset="20%"  stopOpacity={1}/>
-                                    <stop offset="100%"  stopOpacity={1}/>
-                                </linearGradient>
-                            </defs>
-                        ))
-                    }
                     {    
                         lcData.map((lcDataCurr, i) =>(
                                  

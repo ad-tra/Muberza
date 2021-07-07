@@ -1,5 +1,5 @@
 import { graphql, useStaticQuery } from 'gatsby'
-import React, {components} from 'react'
+import React from 'react'
 import Select  from 'react-select'
 import * as Theme from '../styles/colors.module.scss'
 import tinycolor from 'tinycolor2'
@@ -108,13 +108,19 @@ export default function SelectDropdownWrapper({callback, dataSource, maxOptions,
         '&:nth-of-type(1)':{
           border:`2px dashed ${complementary}` ,
           '>div':{
-            color:complementaryText
+            color:complementaryText,
+            "&:hover":{
+              backgroundColor: 'inherit'
+            }
           }
         },
         '&:nth-of-type(2)':{
           border: `2px dashed ${Theme.accent}`,
           '>div':{
-            color:accentText
+            color:accentText,
+            "&:hover":{
+              backgroundColor: 'inherit'
+            }
           }
         }
       }),

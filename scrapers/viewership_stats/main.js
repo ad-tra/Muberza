@@ -15,7 +15,7 @@ function arrFullToCondensed(interval, dataArr, floor, ceil= undefined){
     let start = new dayjs(floor).startOf('month')
     let end = start.add(interval.magnitude, interval.unit)
     ceil = new dayjs(ceil);
-    const resultArr = []; let condensedViews = 0, fullViewsSinceStart  = 0; 
+    const resultArr = []; let condensedViews = 0, condensedViewsSinceStart  = 0,condensedLivesCount = 0;
     
     for(let i = 0; i<=dataArr.length && start.diff(ceil) <= 0; i++){
   
@@ -24,7 +24,8 @@ function arrFullToCondensed(interval, dataArr, floor, ceil= undefined){
   
         if(fullTimestamp.diff(end) <= 0 && fullTimestamp.diff(start) >= 0){
             condensedViews += fullViews
-            fullViewsSinceStart = dataArr[i].viewsSinceStart
+            condensedViewsSinceStart = dataArr[i].viewsSinceStart
+            condensedLivesCount++
             
             //if this is the last item and the condensedViews is loaded, we don't want to waste it. we will push it even though we haven't surpassed the interval.
             
@@ -38,7 +39,13 @@ function arrFullToCondensed(interval, dataArr, floor, ceil= undefined){
         
         }
         //fullTimestamp > end
-        resultArr.push({"startTimestamp":start.unix(),"endTimestamp":end.unix(), "views":condensedViews, "viewsSinceStart":fullViewsSinceStart })
+        resultArr.push({
+            "startTimestamp":start.unix(),
+            "endTimestamp":end.unix(),
+            "views":condensedViews,
+            "viewsSinceStart":condensedViewsSinceStart,
+            "avgViewsPerLive": condensedLivesCount === 0 ? 0 : parseInt(condensedViews/condensedLivesCount)
+        })
         start = new dayjs(end);
         end = end.add(interval.magnitude, interval.unit)
         
@@ -46,11 +53,11 @@ function arrFullToCondensed(interval, dataArr, floor, ceil= undefined){
         //if(fullTimestamp.diff(end) >=  0 || fullTimestamp.diff(start) <=0){
         i--;
         condensedViews = 0
-            
+        condensedLivesCount = 0
             //continue;
         
         //condensedViews = fullViews;
-        //condensedViewsSinceStart = fullViewsSinceStart
+        //condensedViewsSinceStart = condensedViewsSinceStart
         
     }
     return resultArr;
@@ -69,6 +76,7 @@ async function main(query){
             if(dateStr.includes("Yesterday")) return new dayjs().subtract(1, "day").unix();
             //general case
             if(dateStr.match(/\d{4}/) == null) dateStr += " " + new dayjs().get("y") 
+            
             return new dayjs(dateStr).unix();
         })
         

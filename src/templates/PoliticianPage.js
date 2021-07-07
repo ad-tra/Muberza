@@ -34,7 +34,16 @@ export default function PoliticianPage({data}) {
                         XAxisDataKey = "startTimestamp"
                         YAxisDataKey = "viewsSinceStart"
                     />
-                    
+                    {/*
+                                        <LineChartWrapper 
+                        title = "معدل مشاهدات اللايف في كل شهر"
+                        dataSourceMacro = {politician} dataSource = "condensed"
+                        XAxisDataKey = "startTimestamp"
+                        YAxisDataKey = "avgViewsPerLive"
+                    />
+                    */}
+
+
                 </div>
 
                 <div className="ta7lil_container">
@@ -64,6 +73,7 @@ export const query = graphql`
                 endTimestamp
                 views
                 viewsSinceStart
+                avgViewsPerLive
             }
             full {
                 timestamp

@@ -3,7 +3,7 @@
 exports.createPages = async ({ actions: { createPage }, graphql }) => {
     const results = await graphql(`
         {
-          allPoliticiansJson {
+          allPoliticiansJson(sort: {fields: viewershipStats___brief___aggregateViews, order: ASC}) {
                 edges {
                   node {
                     slug
