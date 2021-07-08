@@ -23,8 +23,8 @@ export default function PoliticianCard({politician}){
                 
                 
                 <div className="politician_info">
-                    <h3>{politician.name}</h3>
-                    <p>{politician.briefDiscrp}</p>
+                    <h3 className = "name">{politician.name}</h3>
+                    <p className = "brief_discrp">{politician.briefDiscrp}</p>
                     
                     <ul dir = "rtl">
                         {briefViewershipStats.map(brief =>(

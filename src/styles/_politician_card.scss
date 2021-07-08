@@ -1,9 +1,13 @@
 /* since first element(abir) is off diferrent color, increase its margin, and give it space*/
 section .politician_card_container:first-of-type .politician_card {margin: 28vh auto;}
 
-.politician_card_container {overflow: auto;}
+.politician_card_container {
+    overflow: auto;
+
+}
 
 .politician_card {
+    
     position: relative;
     display: flex;
     flex-direction: row-reverse;
@@ -11,10 +15,15 @@ section .politician_card_container:first-of-type .politician_card {margin: 28vh 
     max-width: 1500px;
     @media (max-width: $breakpointMobile) {
         flex-direction: column;
-        align-items: flex-end;
+        align-items: center;
+        font-size: 10px;
+        max-width: 94vw;
+        margin: 8em auto;
+        background: rgba(0, 0, 0, 0.116);
     }
     .politician_image {
         width: 24em;
+        position: relative;
         .gatsby-image-wrapper img{
             width: auto;
             height: 23em;
@@ -22,14 +31,30 @@ section .politician_card_container:first-of-type .politician_card {margin: 28vh 
         picture {
             opacity: 0.7;
         }
+        @media (max-width: $breakpointMobile) {
+            &:after{
+                content: '';
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                z-index: 1;
+                left:0;
+            }
+        }
     }
     .politician_info {
         font-size: 1.2em;
         padding-right: 5em;
+        z-index: 2;
         @media (max-width: $breakpointMobile) {
             padding-right: 0em;
+            position: relative;
+            top:-5em;
+            .name, .brief_discrp{
+                text-align: center !important;   
+            }   
         }
-        h3 {
+        .name {
             font-size: 6.7em;
             margin-bottom: 0.3em;
             line-height: 0.7em;
@@ -38,9 +63,12 @@ section .politician_card_container:first-of-type .politician_card {margin: 28vh 
             font-size: 1.2em;
             margin-top: 5em;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 270px 140px;
             row-gap: 0.6em;
-
+            @media (max-width: $breakpointMobile){
+                grid-template-columns: 190px 63px;
+                justify-content: center;
+            }
             /*value bolding after the key*/
             .bold {
                 font-weight: 600;
@@ -57,12 +85,16 @@ section .politician_card_container:first-of-type .politician_card {margin: 28vh 
         font-weight: 600;
         word-spacing: 0.4em;
         padding: 1.5em 3em 1em 3em;
-        &:before {
+        @media (max-width: $breakpointMobile) {
+            position: relative;
+            width: 100%;
+            text-align: center;
+        }
+        &:after {
             content: "";
             display: block;
             height: 4px;
             width: 100%;
-            top: 1em;
             left: 0;
             bottom: 0;
             position: absolute;
@@ -73,6 +105,9 @@ section .politician_card_container:first-of-type .politician_card {margin: 28vh 
         height: 5em;
         width: 100%;
         opacity: 0.26;
+        @media (max-width: $breakpointMobile) {
+            display: none;
+        }
     }
     .degrade--smoll{
         width: 10em;
@@ -80,6 +115,9 @@ section .politician_card_container:first-of-type .politician_card {margin: 28vh 
         left: 0;
         top: 2em;
         opacity: 0.7;
+        @media (max-width: $breakpointMobile) {
+            display: none;
+        }
     }
 }
 
@@ -89,6 +127,13 @@ section .politician_card_container:first-of-type .politician_card {margin: 28vh 
     color: $primary;
     background-color: $background;
     .politician_card {
+        .politician_image{
+            &:after{
+                @media (max-width: $breakpointMobile){
+                    background: linear-gradient(transparent 50%, $background 100%);
+                }
+            }
+        }
         .degrade {
             background: linear-gradient(-90deg, $primary 50%, transparent);
 
@@ -107,8 +152,8 @@ section .politician_card_container:first-of-type .politician_card {margin: 28vh 
                 background: linear-gradient(0deg,darken(saturate($background,40%), 5%) 20%, transparent);
             }
         }
-        .button_butt:before {
-            box-shadow: 0 50px 0 0 $primary;
+        .button_butt:after {
+            box-shadow: 0 4px 0 0 $primary;
         }
     }
 }
