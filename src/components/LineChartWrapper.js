@@ -12,7 +12,7 @@ const XAxisFormatter = timestamp=> new dayjs(timestamp * 1000).format("MMM,YYYY"
 const YAxisFormatter = magnitude => numFormatter(magnitude) 
 
 const formatTooltipLabel = label => new dayjs(label * 1000).format("MMMM YYYY")
-const formatToolTipKey = key => numFormatter(key, 1)
+const formatToolTipKey = key => [numFormatter(key, 1), 'مشاهدات']
 
  
 export default function LineChartWrapper({title, dataSourceMacro,dataSource, XAxisDataKey, YAxisDataKey }) {

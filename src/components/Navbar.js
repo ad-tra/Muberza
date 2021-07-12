@@ -23,9 +23,9 @@ export default function Navbar(){
 
             
             <ul className={ `navbar_links ${state ? "expanded" : ""}`}>
-                <li ><Link to="/404">شكـونـا</Link></li>
-                <li ><Link to="/404">اتصل بنا</Link></li>
-                <li ><Link to="/404">اعطينا رايك</Link></li>
+                <li ><Link to="/501">شكـونـا</Link></li>
+                <li ><Link to="/501">اتصل بنا</Link></li>
+                <li ><Link to="/501">اعطينا رايك</Link></li>
             </ul>
         </nav>
     )

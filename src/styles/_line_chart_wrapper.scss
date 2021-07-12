@@ -9,13 +9,19 @@
     height: 830px;
     @media (max-width:$breakpointMobile) {
         height: 400px;
-
         circle{
             r:1;
         }
         path{
             stroke-width:2;
         }
+    }
+    .recharts-tooltip-item-value{
+        direction: rtl;
+        display: inline-block;
+    }
+    .recharts-tooltip-item-list{
+        direction: rtl;
     }
     .chart_intel{
         display: flex;
@@ -68,9 +74,20 @@
         @include addDataSourceColor($complementary, 1);
         @include addDataSourceColor($accent, 2);
 
-        
         #grid{
             stroke: rgba($secondary, 0.5);   
+        }
+        .recharts-default-tooltip{
+            background-color: $primary !important;
+            border: 2px solid $secondary !important;
+            color:$secondary;
+        }
+        .recharts-tooltip-label{
+            opacity: 0.5;
+        }
+        .recharts-tooltip-item{
+            color: $secondary !important;
+
         }
         .recharts-cartesian-axis-ticks text{
         fill: rgba($secondary, 0.5);   
