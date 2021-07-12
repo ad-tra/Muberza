@@ -23,13 +23,9 @@ export default function LineChartWrapper({title, dataSourceMacro,dataSource, XAx
 
     return (
         <div className= "line_chart_wrapper">
-            <ResponsiveContainer width="100%" height={700}>
+            <ResponsiveContainer>
                 
-                <LineChart 
-                    width={500} 
-                    height={400} 
-                    
-                    margin={{top: 10, right: 50, left: 50, bottom: 0,}}>
+                <LineChart>
 
                     <XAxis 
                         dataKey={XAxisDataKey} 
@@ -79,6 +75,7 @@ export default function LineChartWrapper({title, dataSourceMacro,dataSource, XAx
                 
             
             </ResponsiveContainer> 
+            
             <div className="chart_intel">
                 <h2 className="chart_title">{title}</h2>
                 <SelectDropdownWrapper 

@@ -15,7 +15,7 @@ export default function PoliticianPage({data}) {
             <div className = {`pp--${politician.party}`}>
                 <div className="headers_container">
                     <h1 dir ="rtl">{politician.name} تحقق {numFormatter(politician.viewershipStats.brief.aggregateViews)} مشاهدة   </h1>
-                    <p dir = "rtl">لكن لا بــــد أن أوضح لك أن كل هذه الأفكار لمغلوطــة حول استنكار  النشوة وتمجيد الألم نشأت بالفعل،  وسأعرض لك التفاصيل لتكتشف حقيقة  وأساس  تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب الشعور بالسعادة، ولكن بفضل</p>
+                    <p dir = "rtl">لكن لا بد أن أوضح لك أن كل هذه الأفكار لمغلوطة حول استنكار النشوة وتمجيد الألم نشأت بالفعل،  وسأعرض لك التفاصيل لتكتشف حقيقة  وأساس  تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب الشعور بالسعادة، ولكن بفضل</p>
                 </div> 
             
                    

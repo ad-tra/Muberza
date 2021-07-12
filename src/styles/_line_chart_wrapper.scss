@@ -2,32 +2,42 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 800px;
     margin:4em auto;
-    
-        margin-top: 8em;
-    
-    
+    margin-top: 8em;
+    width: 95%;
+    max-width: 783px;
+    height: 830px;
+    @media (max-width:$breakpointMobile) {
+        height: 400px;
+
+        circle{
+            r:1;
+        }
+        path{
+            stroke-width:2;
+        }
+    }
     .chart_intel{
         display: flex;
         align-items: center;
         justify-content: space-between;
         flex-direction: row-reverse;
         position: relative;
-        padding-top: 40px;
-        padding-bottom: 100px;
-        /*idealy width is "inherit" but because recharts has margin of 50px (left and right) for the axis labels. this is set to 700
-        700 = 800 - 50 * 2 
-        */
-        width: 700px;
+        padding: 40px 0px 100px 62px;
+        width: 100%;
+        @media (max-width:$breakpointMobile) {
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 5vw;
+            .react_select{
+                padding-top:2em;
+            }
+        }
         .chart_title{
             font-family: "meral";
             justify-self: flex-end;
             font-size: 20px;
-        }
-        .react_select{
-            position: relative;
-            left:60px
+            text-align: center;
         }
     }
 }

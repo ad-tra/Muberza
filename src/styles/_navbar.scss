@@ -24,6 +24,10 @@
         .logo svg{
             height: 1em;
             min-height: 40px; 
+            @media (max-width: $breakpointMobile) {
+                margin-top:1em;
+                min-height: 36px;
+            }
             .cls-1{fill: $green--light;}
             .cls-2{fill: $red--light} 
         }

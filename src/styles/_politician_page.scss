@@ -6,12 +6,26 @@
         width: 100%;
         max-width: 1300px;
         text-align: center;
+        @media (max-width: $breakpointMobile) {
+            padding: 7em 5vw 5em 5vw;
+        }
         h1{
             font-size: 8em;
+            @media(max-width: $breakpointMobile){
+                font-size: 5em;
+                line-height: 0.9em;
+                padding-bottom: 0.5em;
+            }
             text-align: inherit;
         }
         p{
             font-size:1.5em;
+            @media(max-width: $breakpointMobile){
+                font-size: 1em;
+                line-height: 2em;
+                text-align: justify;
+                text-align-last: center;
+            }
             text-align: inherit;
             margin-top:0.5em;
         }
@@ -20,14 +34,26 @@
     .ta7lil_container{
         margin: 0 auto;
         padding-top:4em;
-        max-width: 700px;
+        max-width: 750px;
+        @media (max-width:$breakpointMobile) {
+            padding-left: 5vw;
+            padding-right: 5vw;
+        }
         h3{
             font-size: 2.8em;
+            @media (max-width:$breakpointMobile) {
+                font-size: 3em;
+            }
         }
         p{
             font-size: 1.2em;
             margin-top:1em;
             line-height: 2em;
+            text-align: justify;
+            text-align-last: right;
+            @media (max-width: $breakpointMobile){
+                font-size: 1em;
+            }
         }
     }
 }
