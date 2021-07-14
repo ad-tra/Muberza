@@ -6,7 +6,7 @@ export default function ClashingColors({headerText, subheaderText, children}) {
             <div className="headers_container">
                 <div className="headers_text">
                     <h1 dir="rtl" lang="ar">{headerText}</h1>
-                    <p  dir="rtl" lang="ar">{subheaderText}</p>
+                    <h2  dir="rtl" lang="ar">{subheaderText}</h2>
                 </div>
             </div>
 

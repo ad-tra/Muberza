@@ -34,13 +34,14 @@
                 align-items: center;
             }
         }
-        p,h1{
+        h2,h1{
             @media (max-width: $breakpointMobile){
             text-align: center;
             }
         }
-        p{
+        h2{
             font-size: 2.4vh;
+            font-family: 'Meral';
             margin-top:3vh;
             line-height: 5.6vh;
             max-width:30vw;

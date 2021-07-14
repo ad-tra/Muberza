@@ -5,6 +5,13 @@
  */
 
 module.exports = {
+  siteMetadata: {
+    siteUrl: `https://www.example.com`,
+    title: `Muberza - insight into politicians' viewrship`,
+    description: `track facebook lives of abir moussi, saif eddine makhlouf, and other tunisian politicians`,
+    author:`Adam Trabelsi`,
+    keywords:`abir moussi, saif makhlouf, tunisia, politicians, stats, data-vis`,
+  },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
@@ -34,7 +41,7 @@ module.exports = {
         name: `GatsbyJS`,
         short_name: `GatsbyJS`,
         start_url: `/`,
-        icon: `data/svg/logo.svg`,
+        icon: `data/svg/favicon.svg`,
         background_color: `#40100A`,
         theme_color: `#EB4B36`,
         display: `standalone`,
@@ -48,6 +55,8 @@ module.exports = {
       }
     },
     `gatsby-plugin-offline`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,

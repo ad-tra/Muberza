@@ -29,8 +29,8 @@ export default function PoliticianCard({politician}){
                     <ul dir = "rtl">
                         {briefViewershipStats.map(brief =>(
                             <React.Fragment key = {nanoid()}>
-                                <span>{brief.label}: </span>
-                                <span className = "bold">{numFormatter(brief.value)}</span>
+                                <li>{brief.label}: </li>
+                                <li className = "bold">{numFormatter(brief.value)}</li>
                             </React.Fragment>
         
                         ))}

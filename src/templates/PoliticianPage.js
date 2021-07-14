@@ -4,14 +4,14 @@ import {graphql, navigate} from 'gatsby'
 import Layout from '../components/Layout'
 import LineChartWrapper from '../components/LineChartWrapper'
 import {numFormatter} from '../components/Utils'
-
+import SEO from '../components/SEO'
 
 export default function PoliticianPage({data}) {
 
     const politician = data.politiciansJson;
     return (
         <Layout className = {`politician_page layout--${politician.party} `}>
-            
+            <SEO title = {`${politician.name} - viewrship audimat`}/>
             <div className = {`pp--${politician.party}`}>
                 <div className="headers_container">
                     <h1 dir ="rtl">{politician.name} تحقق {numFormatter(politician.viewershipStats.brief.aggregateViews)} مشاهدة   </h1>
