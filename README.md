@@ -18,3 +18,5 @@ During the pandemic, Tunisian politicians shifted their political activities to 
 1. Data Gathering: content was scraped from the political battleground of Facebook. 
 2. Visual Insights: The heart of our project lies in the visualization of this data. With the help of [ReCharts](https://recharts.org/en-US/), Muberza has informative and engaging data visualizations that bring the numbers to life.
 
+![image](https://github.com/ad-tra/Muberza/assets/66345861/6805f21f-1e96-47a3-ae31-8c126a4d0fe4)
+
